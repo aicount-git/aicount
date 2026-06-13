@@ -1,0 +1,500 @@
+{
+  "MainGroups": [
+    {
+      "Id": 1,
+      "Name": "تجهیزات برقی"
+    },
+    {
+      "Id": 2,
+      "Name": "یراق‌آلات\r\n"
+    },
+    {
+      "Id": 3,
+      "Name": "قطعات الکترومکانیکی\r\n"
+    },
+    {
+      "Id": 5,
+      "Name": "قطعات الکترونیکی\r\n"
+    },
+    {
+      "Id": 6,
+      "Name": "ابزارآلات\r\n"
+    },
+    {
+      "Id": 7,
+      "Name": "تجهیزات روشنایی\r\n"
+    },
+    {
+      "Id": 8,
+      "Name": "مواد مصرفی\r\n"
+    },
+    {
+      "Id": 9,
+      "Name": "قطعات صنعتی\r\n"
+    }
+  ],
+  "SubGroups": [
+    {
+      "Id": 1,
+      "Name": "جعبه و فیوز",
+      "ParentId": 1
+    },
+    {
+      "Id": 2,
+      "Name": "پیچ، مهره و واشر",
+      "ParentId": 2
+    },
+    {
+      "Id": 3,
+      "Name": "موتورهای DC",
+      "ParentId": 3
+    },
+    {
+      "Id": 4,
+      "Name": "بدنه و شاسی‌ها",
+      "ParentId": 9
+    },
+    {
+      "Id": 5,
+      "Name": "کابل و سیم",
+      "ParentId": 1
+    },
+    {
+      "Id": 6,
+      "Name": "خنک‌کننده و حرارت‌گیر",
+      "ParentId": 5
+    },
+    {
+      "Id": 7,
+      "Name": "ابزار تعمیرات الکترونیکی",
+      "ParentId": 6
+    },
+    {
+      "Id": 8,
+      "Name": "LED و ماژول‌ها",
+      "ParentId": 7
+    },
+    {
+      "Id": 9,
+      "Name": "بسته‌بندی صنعتی",
+      "ParentId": 8
+    },
+    {
+      "Id": 10,
+      "Name": "رادیاتور و خنک‌کننده‌ها",
+      "ParentId": 9
+    }
+  ],
+  "Products": [
+    {
+      "Id": 1,
+      "Name": "پیچ نمره ۸",
+      "FinalPrice": "611",
+      "Unit": "عدد",
+      "Information": "پیچ فولادی مناسب برای سازه‌های فلزی سبک اهنی",
+      "MainGroupId": 2,
+      "SubGroupId": 2,
+      "ImageName": "1.webp"
+    },
+    {
+      "Id": 2,
+      "Name": "مهره نمره 8",
+      "FinalPrice": "475",
+      "Unit": "عدد",
+      "Information": "مهره استاندارد برای اتصال پیچ نمره ۸",
+      "MainGroupId": 2,
+      "SubGroupId": 2,
+      "ImageName": "2.webp"
+    },
+    {
+      "Id": 3,
+      "Name": "ورق آهنی 2 میل",
+      "FinalPrice": "156000",
+      "Unit": "کیلوگرم",
+      "Information": "ورق مقاوم در برابر فشار برای ساخت بدنه صنعتی",
+      "MainGroupId": 9,
+      "SubGroupId": 4,
+      "ImageName": "3.webp"
+    },
+    {
+      "Id": 4,
+      "Name": "لوله گالوانیزه",
+      "FinalPrice": "53100",
+      "Unit": "متر",
+      "Information": "مناسب برای لوله‌کشی صنعتی با روکش ضدزنگ",
+      "MainGroupId": 9,
+      "SubGroupId": 4,
+      "ImageName": "4.webp"
+    },
+    {
+      "Id": 5,
+      "Name": "رنگ صنعتی سفید",
+      "FinalPrice": "82960",
+      "Unit": "لیتر",
+      "Information": "رنگ مقاوم به حرارت و رطوبت",
+      "MainGroupId": 8,
+      "SubGroupId": 9,
+      "ImageName": "5.webp"
+    },
+    {
+      "Id": 6,
+      "Name": "چسب حرارتی",
+      "FinalPrice": "10925",
+      "Unit": "عدد",
+      "Information": "چسب پرکاربرد برای اتصالات سریع",
+      "MainGroupId": 8,
+      "SubGroupId": 9,
+      "ImageName": "6.webp"
+    },
+    {
+      "Id": 7,
+      "Name": "کابل برق 1×2",
+      "FinalPrice": "8400",
+      "Unit": "متر",
+      "Information": "کابل روکش‌دار برای انتقال برق فشار ضعیف",
+      "MainGroupId": 1,
+      "SubGroupId": 5,
+      "ImageName": "7.webp"
+    },
+    {
+      "Id": 8,
+      "Name": "فوم ضربه‌گیر",
+      "FinalPrice": "14400",
+      "Unit": "متر",
+      "Information": "فوم محافظ برای بسته‌بندی کالاهای حساس",
+      "MainGroupId": 8,
+      "SubGroupId": 9,
+      "ImageName": "8.webp"
+    },
+    {
+      "Id": 9,
+      "Name": "واشر لاستیکی",
+      "FinalPrice": "260",
+      "Unit": "عدد",
+      "Information": "جلوگیری از نشتی در اتصالات فلزی",
+      "MainGroupId": 2,
+      "SubGroupId": 2,
+      "ImageName": "9.webp"
+    },
+    {
+      "Id": 10,
+      "Name": "کلید قطع و وصل",
+      "FinalPrice": "18750",
+      "Unit": "عدد",
+      "Information": "کلید ساده برای قطع جریان برق",
+      "MainGroupId": 1,
+      "SubGroupId": 1,
+      "ImageName": "10.webp"
+    },
+    {
+      "Id": 11,
+      "Name": "پلاستیک حباب‌دار",
+      "FinalPrice": "12390",
+      "Unit": "متر",
+      "Information": "برای بسته‌بندی و محافظت از کالا",
+      "MainGroupId": 8,
+      "SubGroupId": 9,
+      "ImageName": "11.webp"
+    },
+    {
+      "Id": 12,
+      "Name": "تسمه آهنی",
+      "FinalPrice": "26400",
+      "Unit": "متر",
+      "Information": "تسمه محکم برای ساخت سازه‌های فلزی",
+      "MainGroupId": 9,
+      "SubGroupId": 4,
+      "ImageName": "12.webp"
+    },
+    {
+      "Id": 13,
+      "Name": "فنر فشاری",
+      "FinalPrice": "3500",
+      "Unit": "عدد",
+      "Information": "فنر مناسب قطعات مکانیکی",
+      "MainGroupId": 9,
+      "SubGroupId": 4,
+      "ImageName": "13.webp"
+    },
+    {
+      "Id": 14,
+      "Name": "نوار تفلون",
+      "FinalPrice": "1495",
+      "Unit": "عدد",
+      "Information": "نوار آب‌بندی برای اتصالات لوله‌ای",
+      "MainGroupId": 8,
+      "SubGroupId": 9,
+      "ImageName": "14.webp"
+    },
+    {
+      "Id": 15,
+      "Name": "شیر برقی کوچک",
+      "FinalPrice": "101400",
+      "Unit": "عدد",
+      "Information": "مناسب برای سیستم‌های اتوماتیک صنعتی",
+      "MainGroupId": 3,
+      "SubGroupId": 3,
+      "ImageName": "15.webp"
+    },
+    {
+      "Id": 16,
+      "Name": "پیچ گوشتی دوسو",
+      "FinalPrice": "20350",
+      "Unit": "عدد",
+      "Information": "ابزار عمومی برای باز و بست پیچ‌های دوسو",
+      "MainGroupId": 6,
+      "SubGroupId": 7,
+      "ImageName": "16.webp"
+    },
+    {
+      "Id": 17,
+      "Name": "آچار فرانسه کوچک",
+      "FinalPrice": "31360",
+      "Unit": "عدد",
+      "Information": "آچار تنظیم‌پذیر برای تعمیرات عمومی",
+      "MainGroupId": 6,
+      "SubGroupId": 7,
+      "ImageName": "17.webp"
+    },
+    {
+      "Id": 18,
+      "Name": "پد نسوز",
+      "FinalPrice": "11712",
+      "Unit": "عدد",
+      "Information": "مقاوم در برابر حرارت بالا",
+      "MainGroupId": 8,
+      "SubGroupId": 9,
+      "ImageName": "18.webp"
+    },
+    {
+      "Id": 19,
+      "Name": "فیوز 16 آمپر",
+      "FinalPrice": "5760",
+      "Unit": "عدد",
+      "Information": "فیوز حفاظتی برای تجهیزات الکتریکی",
+      "MainGroupId": 1,
+      "SubGroupId": 1,
+      "ImageName": "19.webp"
+    },
+    {
+      "Id": 20,
+      "Name": "دستگیره فلزی",
+      "FinalPrice": "15625",
+      "Unit": "عدد",
+      "Information": "دستگیره محکم و بادوام برای درب‌های صنعتی",
+      "MainGroupId": 9,
+      "SubGroupId": 4,
+      "ImageName": "20.webp"
+    },
+    {
+      "Id": 21,
+      "Name": "موتور DC 12v",
+      "FinalPrice": "72900",
+      "Unit": "عدد",
+      "Information": "موتور کوچک با توان بالا برای کارهای دقیق",
+      "MainGroupId": 3,
+      "SubGroupId": 3,
+      "ImageName": "21.webp"
+    },
+    {
+      "Id": 22,
+      "Name": "درپوش پلاستیکی",
+      "FinalPrice": "805",
+      "Unit": "عدد",
+      "Information": "درپوش عمومی برای لوله یا مخازن پلاستیکی",
+      "MainGroupId": 9,
+      "SubGroupId": 4,
+      "ImageName": "22.webp"
+    },
+    {
+      "Id": 23,
+      "Name": "بلبرینگ 6202",
+      "FinalPrice": "27300",
+      "Unit": "عدد",
+      "Information": "بلبرینگ صنعتی با دوام بالا",
+      "MainGroupId": 9,
+      "SubGroupId": 10,
+      "ImageName": "23.webp"
+    },
+    {
+      "Id": 24,
+      "Name": "روغن صنعتی",
+      "FinalPrice": "38400",
+      "Unit": "لیتر",
+      "Information": "روغن روان‌کننده برای قطعات مکانیکی",
+      "MainGroupId": 8,
+      "SubGroupId": 9,
+      "ImageName": "24.webp"
+    },
+    {
+      "Id": 25,
+      "Name": "آلومینیوم خام",
+      "FinalPrice": "122500",
+      "Unit": "کیلوگرم",
+      "Information": "مناسب برای ریخته‌گری یا تراشکاری",
+      "MainGroupId": 9,
+      "SubGroupId": 4,
+      "ImageName": "25.webp"
+    },
+    {
+      "Id": 26,
+      "Name": "لوله مسی",
+      "FinalPrice": "166750",
+      "Unit": "متر",
+      "Information": "برای تبادل حرارتی در صنایع برودتی",
+      "MainGroupId": 9,
+      "SubGroupId": 4,
+      "ImageName": "26.webp"
+    },
+    {
+      "Id": 27,
+      "Name": "خمیر سیلیکون",
+      "FinalPrice": "8296",
+      "Unit": "عدد",
+      "Information": "رسانای حرارت برای خنک‌کننده‌ها",
+      "MainGroupId": 8,
+      "SubGroupId": 9,
+      "ImageName": "27.webp"
+    },
+    {
+      "Id": 28,
+      "Name": "سنسور دما",
+      "FinalPrice": "23400",
+      "Unit": "عدد",
+      "Information": "سنجش دما در تجهیزات صنعتی",
+      "MainGroupId": 5,
+      "SubGroupId": 6,
+      "ImageName": "28.webp"
+    },
+    {
+      "Id": 29,
+      "Name": "ال ای دی قرمز",
+      "FinalPrice": "300",
+      "Unit": "عدد",
+      "Information": "چراغ کوچک پرنور برای مدارها",
+      "MainGroupId": 7,
+      "SubGroupId": 8,
+      "ImageName": "29.webp"
+    },
+    {
+      "Id": 30,
+      "Name": "مقاومت 330 اهم",
+      "FinalPrice": "207",
+      "Unit": "عدد",
+      "Information": "قطعه‌ی پایه برای محدودسازی جریان",
+      "MainGroupId": 5,
+      "SubGroupId": 6,
+      "ImageName": "30.webp"
+    },
+    {
+      "Id": 31,
+      "Name": "جعبه فیوز کامل",
+      "FinalPrice": "58110",
+      "Unit": "عدد",
+      "Information": "مناسب برای تابلو برق کوچک خانگی",
+      "MainGroupId": 1,
+      "SubGroupId": 1,
+      "ImageName": "31.webp"
+    },
+    {
+      "Id": 32,
+      "Name": "پکیج مونتاژ پیچ و مهره",
+      "FinalPrice": "13125",
+      "Unit": "عدد",
+      "Information": "مجموعه اتصال کامل برای کارهای صنعتی سبک",
+      "MainGroupId": 2,
+      "SubGroupId": 2,
+      "ImageName": "32.webp"
+    },
+    {
+      "Id": 33,
+      "Name": "موتور پنکه کوچک",
+      "FinalPrice": "106650",
+      "Unit": "عدد",
+      "Information": "مناسب برای ساخت پنکه کوچک یا تهویه ساده",
+      "MainGroupId": 3,
+      "SubGroupId": 3,
+      "ImageName": "33.webp"
+    },
+    {
+      "Id": 34,
+      "Name": "شاسی تابلو برق",
+      "FinalPrice": "840320",
+      "Unit": "عدد",
+      "Information": "شاسی آماده برای نصب تجهیزات برقی",
+      "MainGroupId": 9,
+      "SubGroupId": 4,
+      "ImageName": "34.webp"
+    },
+    {
+      "Id": 35,
+      "Name": "کابل آماده‌سازی شده",
+      "FinalPrice": "93120",
+      "Unit": "متر",
+      "Information": "کابل برش خورده و آماده با اتصالات اولیه",
+      "MainGroupId": 1,
+      "SubGroupId": 5,
+      "ImageName": "35.webp"
+    },
+    {
+      "Id": 36,
+      "Name": "سیستم خنک‌کننده ساده",
+      "FinalPrice": "29040",
+      "Unit": "عدد",
+      "Information": "مناسب برای خنک‌سازی قطعات الکترونیکی",
+      "MainGroupId": 5,
+      "SubGroupId": 6,
+      "ImageName": "36.webp"
+    },
+    {
+      "Id": 37,
+      "Name": "بسته ابزار الکترونیک",
+      "FinalPrice": "96380",
+      "Unit": "عدد",
+      "Information": "مجموعه پایه برای تعمیرات الکترونیکی",
+      "MainGroupId": 6,
+      "SubGroupId": 7,
+      "ImageName": "37.webp"
+    },
+    {
+      "Id": 38,
+      "Name": "جعبه روشنایی LED",
+      "FinalPrice": "30290",
+      "Unit": "عدد",
+      "Information": "مدار ساده LED با نصب سریع",
+      "MainGroupId": 7,
+      "SubGroupId": 8,
+      "ImageName": "38.webp"
+    },
+    {
+      "Id": 39,
+      "Name": "پکیج بسته‌بندی صنعتی",
+      "FinalPrice": "76700",
+      "Unit": "عدد",
+      "Information": "مناسب بسته‌بندی محصولات شکننده",
+      "MainGroupId": 8,
+      "SubGroupId": 9,
+      "ImageName": "39.webp"
+    },
+    {
+      "Id": 40,
+      "Name": "رادیاتور دست‌ساز",
+      "FinalPrice": "762750",
+      "Unit": "عدد",
+      "Information": "مناسب برای خنک‌سازی تجهیزات صنعتی سبک",
+      "MainGroupId": 9,
+      "SubGroupId": 10,
+      "ImageName": "40.webp"
+    },
+    {
+      "Id": 41,
+      "Name": "واحد تهویه صنعتی مدل S-10",
+      "FinalPrice": "238720",
+      "Unit": "دستگاه",
+      "Information": "این کالا یک دستگاه تهویه ساده برای فضاهای بسته است. شامل موتور و سنسور دما برای تهویه هوشمند است، بدنه آن با ورق آهنی ساخته شده و با رنگ سفید صنعتی رنگ شده است. سیستم برق آن با کابل، کلید و LED کنترل می‌شود و با فوم ضربه‌گیر عایق شده است.",
+      "MainGroupId": 9,
+      "SubGroupId": 10,
+      "ImageName": "41.webp"
+    }
+  ]
+}
