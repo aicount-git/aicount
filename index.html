@@ -1,24 +1,569 @@
 <!DOCTYPE html>
-<html lang='fa' dir='rtl'>
+<html lang='fa' dir='rtl' class='dark'>
 <head>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>صنایع الکترونیک پیشرو مدار</title>
+    <title>صنایع الکترونیک پیشرو مدار | طراحی و تولید بردهای الکترونیکی، تجهیزات هوشمند و صنعتی</title>
+    
+    <script src='https://cdn.tailwindcss.com'></script>
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Vazirmatn', 'Tahoma', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#fff7ed', 100: '#ffedd5', 500: '#f97316', 600: '#ea580c', 900: '#7c2d12',
+                        },
+                        dark: {
+                            bg: '#0f172a', card: '#1e293b', border: '#334155'
+                        },
+                        telegram: {
+                            main: '#0088cc', hover: '#0077b3'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'>
+    
+    <link href='https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.0.0/Vazirmatn-font-face.css' rel='stylesheet' type='text/css' />
+
     <style>
-        body { font-family: Tahoma, Arial, sans-serif; background-color: #0F111A; color: #FFFFFF; text-align: center; padding: 50px; }
-        .container { background: #1C1F2E; padding: 30px; border-radius: 10px; border: 1px solid #2D324A; box-shadow: 0 4px 8px rgba(0,0,0,0.3); max-width: 600px; margin: auto; }
-        h1 { color: #F3702D; }
-        p { font-size: 18px; color: #B0B0B0; }
-        hr { border-color: #2D324A; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        .dark ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        .dark ::-webkit-scrollbar-thumb { background: #334155; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        body { font-family: 'Vazirmatn', sans-serif; }
+        .transition-all { transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 300ms; }
+        .modal-active { overflow: hidden; }
+        .info-text { white-space: pre-line; line-height: 1.8; }
+        
+        .btn-telegram:hover i { transform: scale(1.1) rotate(-10deg); transition: transform 0.3s ease; }
     </style>
 </head>
-<body>
-    <div class='container'>
-        <h1>فروشگاه صنایع الکترونیک پیشرو مدار</h1>
-        <p>به زودی کاتالوگ محصولات ما در این صفحه قرار خواهد گرفت.</p>
-        <hr>
-        <p><strong>شماره تماس:</strong> 021-66998877</p>
-        <p><strong>آدرس:</strong> تهران، شهرک صنعتی چهاردانگه، بلوار نواب، پلاک ۷۵</p>
+<body class='bg-gray-50 text-slate-800 dark:bg-dark-bg dark:text-slate-200 transition-all duration-300 flex flex-col min-h-screen'>
+
+    <header class='sticky top-0 z-40 bg-white dark:bg-dark-card shadow-md transition-colors duration-300'>
+        <div class='container mx-auto px-4 lg:px-8'>
+            <div class='flex items-center justify-between h-20'>
+                <div class='flex items-center gap-3'>
+                    <div class='w-12 h-12 bg-brand-500 rounded-xl flex items-center justify-center text-white shadow-lg shadow-brand-500/30'>
+                        <i class='fa-solid fa-store text-2xl'></i>
+                    </div>
+                    <div>
+                        <h1 class='font-bold text-xl lg:text-2xl text-slate-900 dark:text-white tracking-tight'>صنایع الکترونیک پیشرو مدار</h1>
+                        <span class='text-xs text-slate-500 dark:text-slate-400'>طراحی و تولید بردهای الکترونیکی، تجهیزات هوشمند و صنعتی</span>
+                    </div>
+                </div>
+
+                <div class='flex items-center gap-4'>
+                    <button id='darkModeToggle' class='p-2.5 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors' aria-label='تغییر تم'>
+                        <i class='fa-solid fa-moon text-slate-700 dark:hidden text-lg'></i>
+                        <i class='fa-solid fa-sun text-yellow-400 hidden dark:inline-block text-lg'></i>
+                    </button>
+                    
+                    <button id='mobileMenuBtn' class='md:hidden p-2 text-slate-600 dark:text-slate-300 text-2xl'>
+                        <i class='fa-solid fa-bars'></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id='mobileMenu' class='hidden md:hidden bg-white dark:bg-dark-card border-t border-slate-100 dark:border-dark-border px-4 py-4 space-y-3 shadow-inner'>
+            <a href='#' class='block px-4 py-2 text-brand-500 font-medium bg-brand-50 dark:bg-slate-800 rounded-lg'>صفحه اصلی</a>
+            <a href='#products-section' class='block px-4 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg'>محصولات</a>
+        </div>
+    </header>
+
+    <section class='relative bg-slate-900 text-white overflow-hidden py-20 lg:py-28'>
+        <div class='absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent'></div>
+        
+        <div class='container mx-auto px-4 relative z-10 text-center'>
+            <span class='inline-block py-1 px-3 rounded-full bg-brand-500/20 text-brand-400 font-semibold mb-6 border border-brand-500/30'>کاتالوگ آنلاین</span>
+            <h2 class='text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight'>محصولات <span class='text-brand-500'>صنایع الکترونیک پیشرو مدار</span></h2>
+            <p class='text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed'>عرضه کننده بهترین طراحی و تولید بردهای الکترونیکی، تجهیزات هوشمند و صنعتی با بالاترین استانداردهای کیفیت.</p>
+            <div class='flex flex-col sm:flex-row justify-center gap-4'>
+                <a href='#products-section' class='px-8 py-4 bg-brand-500 hover:bg-brand-600 text-white font-bold rounded-xl transition-all shadow-lg shadow-brand-500/30 transform hover:-translate-y-1'>مشاهده محصولات</a>
+            </div>
+        </div>
+    </section>
+
+    <main id='products-section' class='flex-grow container mx-auto px-4 py-12'>
+        
+        <div class='bg-white dark:bg-dark-card rounded-2xl shadow-sm border border-slate-200 dark:border-dark-border p-5 mb-10'>
+            <div class='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4'>
+                <div class='lg:col-span-2 relative'>
+                    <div class='absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none'>
+                        <i class='fa-solid fa-search text-slate-400'></i>
+                    </div>
+                    <input type='text' id='searchInput' placeholder='جستجوی نام کالا...' class='w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white rounded-xl py-3 pr-10 pl-4 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all placeholder-slate-400'>
+                </div>
+                <div>
+                    <select id='mainGroupFilter' class='w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-brand-500 appearance-none'>
+                        <option value='0'>همه گروه‌های اصلی</option>
+                    </select>
+                </div>
+                <div>
+                    <select id='subGroupFilter' class='w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-brand-500 appearance-none disabled:opacity-50'>
+                        <option value='0'>همه گروه‌های فرعی</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class='flex justify-between items-center mb-6'>
+            <h3 class='text-2xl font-bold border-r-4 border-brand-500 pr-3'>لیست محصولات</h3>
+            <span id='resultCount' class='bg-brand-50 dark:bg-slate-800 text-brand-600 dark:text-brand-400 font-bold px-3 py-1 rounded-lg text-sm'>در حال بارگذاری...</span>
+        </div>
+
+        <div id='productGrid' class='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12'>
+            <div class='col-span-full flex justify-center py-20'>
+                <i class='fa-solid fa-circle-notch fa-spin text-4xl text-brand-500'></i>
+            </div>
+        </div>
+
+        <div id='emptyState' class='hidden flex-col items-center justify-center py-20 text-slate-500 dark:text-slate-400'>
+            <i class='fa-solid fa-box-open text-6xl mb-4 text-slate-300 dark:text-slate-600'></i>
+            <p class='text-lg font-medium'>کالایی با این مشخصات یافت نشد!</p>
+        </div>
+
+        <div id='pagination' class='flex flex-wrap justify-center items-center gap-2 pb-10'></div>
+    </main>
+
+    <footer id='footer' class='bg-slate-900 text-slate-300 pt-16 pb-8 border-t-4 border-brand-500 mt-auto'>
+        <div class='container mx-auto px-4'>
+            <div class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12'>
+                
+                <div>
+                    <h4 class='text-white text-xl font-bold mb-6 flex items-center gap-2'>
+                        <i class='fa-solid fa-industry text-brand-500'></i> صنایع الکترونیک پیشرو مدار
+                    </h4>
+                    <p class='text-sm leading-relaxed mb-6 text-slate-400'>
+                        تولید و عرضه بهترین طراحی و تولید بردهای الکترونیکی، تجهیزات هوشمند و صنعتی با پشتیبانی قدرتمند.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class='text-white text-lg font-bold mb-6'>دسترسی سریع</h4>
+                    <ul class='space-y-3 text-sm'>
+                        <li><a href='#' class='hover:text-brand-400 transition-colors flex items-center gap-2'><i class='fa-solid fa-angle-left text-xs'></i> صفحه اصلی</a></li>
+                        <li><a href='#products-section' class='hover:text-brand-400 transition-colors flex items-center gap-2'><i class='fa-solid fa-angle-left text-xs'></i> محصولات</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class='text-white text-lg font-bold mb-6'>ارتباط با ما</h4>
+                    <ul class='space-y-4 text-sm'>
+                        <li class='flex items-start gap-3'>
+                            <i class='fa-solid fa-location-dot mt-1 text-brand-500'></i>
+                            <div>
+                                <strong class='block text-white mb-1'>آدرس:</strong>
+                                <span>تهران، شهرک صنعتی چهاردانگه، بلوار نواب، پلاک ۷۵</span>
+                            </div>
+                        </li>
+                        <li class='flex items-center gap-3'>
+                            <i class='fa-solid fa-phone text-brand-500'></i>
+                            <span dir='ltr' class='text-right w-full'>021-66998877</span>
+                        </li>
+                        <li class='flex items-center gap-3'>
+                            <i class='fa-solid fa-mobile-screen text-brand-500'></i>
+                            <span dir='ltr' class='text-right w-full'>09125551234</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            
+            <div class='pt-8 border-t border-slate-800 text-center text-xs text-slate-500 flex flex-col md:flex-row justify-between items-center gap-4'>
+                <p>تمامی حقوق محفوظ است. © 1403</p>
+                <p>طراحی و توسعه کاتالوگ توسط موتور هوشمند aicount</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id='productModal' class='fixed inset-0 z-50 hidden opacity-0 transition-opacity duration-300'>
+        <div class='absolute inset-0 bg-black/70 backdrop-blur-sm' onclick='closeModal()'></div>
+        
+        <div class='absolute inset-0 flex items-center justify-center p-4 md:p-6'>
+            <div class='bg-white dark:bg-dark-card rounded-2xl shadow-2xl w-full max-w-4xl max-h-[95vh] overflow-y-auto transform scale-95 transition-transform duration-300' id='modalContainer'>
+                
+                <div class='sticky top-0 bg-white/95 dark:bg-dark-card/95 backdrop-blur-md border-b border-slate-100 dark:border-slate-800 p-4 px-6 flex justify-between items-center z-10'>
+                    <h3 id='modalTitle' class='text-xl font-bold text-slate-900 dark:text-white pr-2 border-r-4 border-brand-500'>نام کالا</h3>
+                    <button onclick='closeModal()' class='w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 hover:bg-red-100 hover:text-red-500 transition-colors'>
+                        <i class='fa-solid fa-xmark'></i>
+                    </button>
+                </div>
+
+                <div class='p-6 grid grid-cols-1 lg:grid-cols-2 gap-8'>
+                    <div class='bg-slate-50 dark:bg-slate-800/50 rounded-xl p-4 flex items-center justify-center border border-slate-100 dark:border-slate-700 h-64 lg:h-full relative group'>
+                        <img id='modalImage' src='' alt='' class='max-w-full max-h-full object-contain mix-blend-multiply dark:mix-blend-normal rounded-lg'>
+                    </div>
+                    
+                    <div class='flex flex-col'>
+                        <div class='flex gap-2 mb-4'>
+                            <span id='modalGroup' class='bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs px-3 py-1 rounded-full font-medium'>گروه</span>
+                            <span id='modalUnit' class='bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400 text-xs px-3 py-1 rounded-full font-medium'>واحد</span>
+                        </div>
+
+                        <div class='bg-slate-50 dark:bg-slate-800/50 rounded-xl p-4 border border-slate-100 dark:border-slate-700 mb-6'>
+                            <div class='text-sm text-slate-500 dark:text-slate-400 mb-1'>قیمت نهایی:</div>
+                            <div class='flex items-end gap-2 text-brand-600 dark:text-brand-400'>
+                                <span id='modalPrice' class='text-3xl font-black tracking-tight'>0</span>
+                                <span class='text-sm font-bold mb-1'>تومان</span>
+                            </div>
+                        </div>
+
+                        <div class='flex-grow mb-6'>
+                            <h4 class='font-bold text-slate-800 dark:text-white mb-3 flex items-center gap-2'>
+                                <i class='fa-solid fa-clipboard-list text-brand-500'></i> مشخصات کالا
+                            </h4>
+                            <div class='bg-slate-50 dark:bg-slate-800/50 rounded-xl p-4 border border-slate-100 dark:border-slate-700'>
+                                <p id='modalInfo' class='info-text text-sm text-slate-600 dark:text-slate-300'></p>
+                            </div>
+                        </div>
+
+                        <div class='flex gap-3 mt-auto'>
+                            <button id='modalOrderBtn' onclick='' class='flex-1 btn-telegram bg-telegram-main hover:bg-telegram-hover text-white py-3 rounded-xl font-bold transition-colors flex justify-center items-center gap-2 shadow-lg shadow-telegram-main/30'>
+                                <i class='fa-brands fa-telegram text-xl'></i> سفارش در تلگرام
+                            </button>
+                            <button onclick='closeModal()' class='px-6 py-3 bg-slate-200 hover:bg-slate-300 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-800 dark:text-white font-bold rounded-xl transition-colors'>
+                                بازگشت
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <script>
+        let db = { MainGroups: [], SubGroups: [], Products: [] };
+        let filteredProducts = [];
+        let currentPage = 1;
+        const itemsPerPage = 18;
+        const TELEGRAM_NUMBER = '09125551234';
+        
+        const placeholderImg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='transparent'/%3E%3Cpath d='M150,190 L250,190 L200,120 Z' fill='%2364748b' opacity='0.3'/%3E%3Ccircle cx='230' cy='120' r='15' fill='%2364748b' opacity='0.3'/%3E%3Ctext x='200' y='230' font-family='Tahoma' font-size='16' fill='%2394a3b8' text-anchor='middle'%3Eتصویر در دسترس نیست%3C/text%3E%3C/svg%3E";
+
+        const grid = document.getElementById('productGrid');
+        const emptyState = document.getElementById('emptyState');
+        const pagination = document.getElementById('pagination');
+        const resultCount = document.getElementById('resultCount');
+        const searchInput = document.getElementById('searchInput');
+        const mainFilter = document.getElementById('mainGroupFilter');
+        const subFilter = document.getElementById('subGroupFilter');
+        
+        const modal = document.getElementById('productModal');
+        const modalContainer = document.getElementById('modalContainer');
+
+        async function init() {
+            setupDarkMode();
+            setupMobileMenu();
+            
+            try {
+                const response = await fetch('catalog_data.json');
+                if(!response.ok) throw new Error('فایل دیتا یافت نشد');
+                db = await response.json();
+                
+                populateFilters();
+                applyFilters();
+                
+                searchInput.addEventListener('input', () => { currentPage = 1; applyFilters(); });
+                mainFilter.addEventListener('change', () => { 
+                    updateSubFilter(); 
+                    currentPage = 1; 
+                    applyFilters(); 
+                });
+                subFilter.addEventListener('change', () => { currentPage = 1; applyFilters(); });
+
+            } catch (error) {
+                console.error(error);
+                grid.innerHTML = `<div class='col-span-full text-center text-red-500 py-10'>
+                    <i class='fa-solid fa-triangle-exclamation text-4xl mb-4'></i>
+                    <p class='font-bold'>خطا در بارگذاری اطلاعات سایت.</p>
+                    <p class='text-sm mt-2 text-slate-500'>مطمئن شوید فایل catalog_data.json روی هاست وجود دارد.</p>
+                </div>`;
+            }
+        }
+
+        function populateFilters() {
+            db.MainGroups.forEach(g => {
+                const opt = document.createElement('option');
+                opt.value = g.Id;
+                opt.textContent = g.Name;
+                mainFilter.appendChild(opt);
+            });
+        }
+
+        function updateSubFilter() {
+            const mainId = parseInt(mainFilter.value);
+            subFilter.innerHTML = '<option value="0">همه گروه‌های فرعی</option>';
+            
+            if(mainId === 0) {
+                subFilter.disabled = true;
+                return;
+            }
+
+            subFilter.disabled = false;
+            const subs = db.SubGroups.filter(s => s.ParentId === mainId);
+            subs.forEach(s => {
+                const opt = document.createElement('option');
+                opt.value = s.Id;
+                opt.textContent = s.Name;
+                subFilter.appendChild(opt);
+            });
+        }
+
+        function applyFilters() {
+            const query = searchInput.value.trim().toLowerCase();
+            const mainId = parseInt(mainFilter.value);
+            const subId = parseInt(subFilter.value);
+
+            filteredProducts = db.Products.filter(p => {
+                const matchSearch = p.Name.toLowerCase().includes(query);
+                const matchMain = mainId === 0 || p.MainGroupId === mainId;
+                const matchSub = subId === 0 || p.SubGroupId === subId;
+                return matchSearch && matchMain && matchSub;
+            });
+
+            resultCount.innerHTML = `نمایش <span class='font-black'>${filteredProducts.length}</span> کالا`;
+            renderGrid();
+        }
+
+        function renderGrid() {
+            grid.innerHTML = '';
+            
+            if(filteredProducts.length === 0) {
+                emptyState.classList.remove('hidden');
+                emptyState.classList.add('flex');
+                pagination.innerHTML = '';
+                return;
+            } else {
+                emptyState.classList.add('hidden');
+                emptyState.classList.remove('flex');
+            }
+
+            const start = (currentPage - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
+            const pageData = filteredProducts.slice(start, end);
+
+            pageData.forEach(prod => {
+                const subG = db.SubGroups.find(s => s.Id === prod.SubGroupId);
+                const badgeName = subG ? subG.Name : 'محصولات';
+                const finalPrc = prod.FinalPrice !== '0' && prod.FinalPrice !== '' ? prod.FinalPrice : 'تماس بگیرید';
+
+                const card = document.createElement('div');
+                card.className = 'bg-white dark:bg-dark-card rounded-2xl shadow-sm hover:shadow-xl border border-slate-200 dark:border-dark-border overflow-hidden transition-all duration-300 flex flex-col group';
+                
+                card.innerHTML = `
+                    <div class='h-48 bg-white p-4 flex items-center justify-center relative border-b border-slate-50 dark:border-slate-800 cursor-pointer' onclick='openModal(${prod.Id})'>
+                        <img src='images/${prod.ImageName}' alt='${prod.Name}' loading='lazy' class='max-w-full max-h-full object-contain transition-transform duration-500 group-hover:scale-105 mix-blend-multiply' onerror="this.onerror=null; this.src='${placeholderImg}';">
+                        <div class='absolute top-3 right-3 bg-white/90 backdrop-blur text-slate-700 text-[10px] font-bold px-2 py-1 rounded shadow border border-slate-100'>
+                            ${badgeName}
+                        </div>
+                    </div>
+                    <div class='p-5 flex flex-col flex-grow'>
+                        <h4 class='font-bold text-slate-800 dark:text-white text-sm leading-snug mb-4 line-clamp-2 cursor-pointer hover:text-brand-500 transition-colors' title='${prod.Name}' onclick='openModal(${prod.Id})'>${prod.Name}</h4>
+                        
+                        <div class='mt-auto flex items-end justify-between mb-4'>
+                            <div>
+                                <span class='block text-[11px] text-slate-400 dark:text-slate-500 mb-1'>قیمت نهایی (${prod.Unit}):</span>
+                                <div class='text-brand-600 dark:text-brand-400 font-black text-lg flex items-center gap-1'>
+                                    ${finalPrc} ${finalPrc !== 'تماس بگیرید' ? `<span class='text-xs font-medium'>تومان</span>` : ''}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button onclick='orderViaTelegram(${prod.Id})' class='w-full btn-telegram bg-slate-100 hover:bg-telegram-main dark:bg-slate-800 dark:hover:bg-telegram-main text-slate-700 dark:text-slate-300 hover:text-white dark:hover:text-white py-2.5 rounded-xl text-sm font-bold transition-colors flex justify-center items-center gap-2 border border-slate-200 dark:border-slate-700 hover:border-transparent'>
+                            <i class='fa-brands fa-telegram text-lg'></i> سفارش در تلگرام
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+
+            renderPagination();
+        }
+
+        function renderPagination() {
+            pagination.innerHTML = '';
+            const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+            if(totalPages <= 1) return;
+
+            const prev = document.createElement('button');
+            prev.className = `w-10 h-10 flex items-center justify-center rounded-xl font-bold transition-colors ${currentPage === 1 ? 'bg-slate-100 text-slate-400 cursor-not-allowed dark:bg-slate-800 dark:text-slate-600' : 'bg-white text-slate-700 hover:bg-brand-50 hover:text-brand-600 shadow-sm border border-slate-200 dark:bg-dark-card dark:text-slate-300 dark:border-dark-border dark:hover:bg-slate-700'}`;
+            prev.innerHTML = '<i class='fa-solid fa-angle-right'></i>';
+            prev.disabled = currentPage === 1;
+            prev.onclick = () => { currentPage--; renderGrid(); window.scrollTo({top: document.getElementById('products-section').offsetTop - 100, behavior: 'smooth'}); };
+            pagination.appendChild(prev);
+
+            let startP = Math.max(1, currentPage - 2);
+            let endP = Math.min(totalPages, currentPage + 2);
+
+            if(startP > 1) {
+                pagination.appendChild(createPageBtn(1));
+                if(startP > 2) pagination.appendChild(createDots());
+            }
+
+            for(let i=startP; i<=endP; i++) {
+                pagination.appendChild(createPageBtn(i));
+            }
+
+            if(endP < totalPages) {
+                if(endP < totalPages - 1) pagination.appendChild(createDots());
+                pagination.appendChild(createPageBtn(totalPages));
+            }
+
+            const next = document.createElement('button');
+            next.className = `w-10 h-10 flex items-center justify-center rounded-xl font-bold transition-colors ${currentPage === totalPages ? 'bg-slate-100 text-slate-400 cursor-not-allowed dark:bg-slate-800 dark:text-slate-600' : 'bg-white text-slate-700 hover:bg-brand-50 hover:text-brand-600 shadow-sm border border-slate-200 dark:bg-dark-card dark:text-slate-300 dark:border-dark-border dark:hover:bg-slate-700'}`;
+            next.innerHTML = '<i class='fa-solid fa-angle-left'></i>';
+            next.disabled = currentPage === totalPages;
+            next.onclick = () => { currentPage++; renderGrid(); window.scrollTo({top: document.getElementById('products-section').offsetTop - 100, behavior: 'smooth'}); };
+            pagination.appendChild(next);
+        }
+
+        function createPageBtn(num) {
+            const btn = document.createElement('button');
+            const isActive = num === currentPage;
+            btn.className = `w-10 h-10 flex items-center justify-center rounded-xl font-bold transition-all shadow-sm border ${isActive ? 'bg-brand-500 text-white border-brand-500 scale-110' : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50 dark:bg-dark-card dark:text-slate-300 dark:border-dark-border dark:hover:bg-slate-700'}`;
+            btn.innerText = num;
+            btn.onclick = () => { currentPage = num; renderGrid(); window.scrollTo({top: document.getElementById('products-section').offsetTop - 100, behavior: 'smooth'}); };
+            return btn;
+        }
+
+        function createDots() {
+            const span = document.createElement('span');
+            span.className = 'w-8 h-10 flex items-center justify-center text-slate-400 dark:text-slate-600 font-bold';
+            span.innerText = '...';
+            return span;
+        }
+
+        function orderViaTelegram(id) {
+            const prod = db.Products.find(p => p.Id === id);
+            if(!prod) return;
+            
+            const priceText = prod.FinalPrice !== '0' && prod.FinalPrice !== '' ? `${prod.FinalPrice} تومان` : 'نامشخص';
+            const message = `سلام، وقت بخیر.\nمن از طریق سایت پیام می‌دهم و درخواست سفارش/استعلام کالای زیر را دارم:\n\n📦 نام کالا: ${prod.Name}\n🔢 کد کالا: ${prod.Id}\n💰 قیمت سایت: ${priceText}\n\nلطفاً راهنمایی بفرمایید.`;
+            
+            const url = `https://t.me/${TELEGRAM_NUMBER}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+
+        function openModal(id) {
+            const prod = db.Products.find(p => p.Id === id);
+            if(!prod) return;
+
+            const subG = db.SubGroups.find(s => s.Id === prod.SubGroupId);
+            const mainG = db.MainGroups.find(m => m.Id === prod.MainGroupId);
+
+            document.getElementById('modalTitle').innerText = prod.Name;
+            
+            const imgEl = document.getElementById('modalImage');
+            imgEl.src = `images/${prod.ImageName}`;
+            imgEl.onerror = function() { this.onerror=null; this.src = placeholderImg; };
+
+            const finalPrc = prod.FinalPrice !== '0' && prod.FinalPrice !== '' ? prod.FinalPrice : 'تماس بگیرید';
+            document.getElementById('modalPrice').innerText = finalPrc;
+            document.getElementById('modalUnit').innerText = 'واحد: ' + (prod.Unit || 'عدد');
+            
+            let groupTxt = [];
+            if(mainG) groupTxt.push(mainG.Name);
+            if(subG) groupTxt.push(subG.Name);
+            document.getElementById('modalGroup').innerText = groupTxt.join(' » ') || 'بدون گروه';
+
+            document.getElementById('modalOrderBtn').onclick = () => orderViaTelegram(prod.Id);
+
+            let infoHtml = '';
+            if(prod.Information && prod.Information.trim() !== '') {
+                const lines = prod.Information.split(/\r?\n|\|/).filter(l => l.trim() !== '');
+                if(lines.length > 0) {
+                    infoHtml = '<ul class="space-y-2">';
+                    lines.forEach(line => {
+                        const parts = line.split(':');
+                        if(parts.length > 1) {
+                            infoHtml += `<li><span class="w-1.5 h-1.5 inline-block bg-brand-500 rounded-full ml-2"></span><strong class="text-slate-800 dark:text-white">${parts[0].trim()}:</strong> <span class="text-slate-600 dark:text-slate-300">${parts.slice(1).join(':').trim()}</span></li>`;
+                        } else {
+                            infoHtml += `<li><span class="w-1.5 h-1.5 inline-block bg-brand-500 rounded-full ml-2"></span>${line.trim()}</li>`;
+                        }
+                    });
+                    infoHtml += '</ul>';
+                } else {
+                    infoHtml = 'اطلاعات بیشتری ثبت نشده است.';
+                }
+            } else {
+                infoHtml = '<span class="italic text-slate-400">اطلاعاتی برای این محصول ثبت نشده است.</span>';
+            }
+            document.getElementById('modalInfo').innerHTML = infoHtml;
+
+            modal.classList.remove('hidden');
+            document.body.classList.add('modal-active');
+            
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modalContainer.classList.remove('scale-95');
+            }, 10);
+        }
+
+        function closeModal() {
+            modal.classList.add('opacity-0');
+            modalContainer.classList.add('scale-95');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.classList.remove('modal-active');
+            }, 300);
+        }
+
+        function setupDarkMode() {
+            const toggle = document.getElementById('darkModeToggle');
+            const html = document.documentElement;
+            
+            if (!('theme' in localStorage)) {
+                localStorage.theme = 'dark';
+            }
+
+            if (localStorage.theme === 'dark') {
+                html.classList.add('dark');
+            } else {
+                html.classList.remove('dark');
+            }
+
+            toggle.addEventListener('click', () => {
+                html.classList.toggle('dark');
+                if (html.classList.contains('dark')) {
+                    localStorage.theme = 'dark';
+                } else {
+                    localStorage.theme = 'light';
+                }
+            });
+        }
+
+        function setupMobileMenu() {
+            const btn = document.getElementById('mobileMenuBtn');
+            const menu = document.getElementById('mobileMenu');
+            const icon = btn.querySelector('i');
+
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+                if(menu.classList.contains('hidden')) {
+                    icon.className = 'fa-solid fa-bars';
+                } else {
+                    icon.className = 'fa-solid fa-xmark';
+                }
+            });
+        }
+
+        window.addEventListener('DOMContentLoaded', init);
+    </script>
 </body>
 </html>
