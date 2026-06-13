@@ -271,7 +271,8 @@
             setupMobileMenu();
             
             try {
-                const response = await fetch('catalog_data.json');
+                // ⭐️ اضافه شدن Cache-Buster برای لود آنی داده‌های جدید ⭐️
+                const response = await fetch('catalog_data.json?v=' + new Date().getTime());
                 if(!response.ok) throw new Error('فایل دیتا یافت نشد');
                 db = await response.json();
                 
@@ -291,7 +292,7 @@
                 grid.innerHTML = `<div class='col-span-full text-center text-red-500 py-10'>
                     <i class='fa-solid fa-triangle-exclamation text-4xl mb-4'></i>
                     <p class='font-bold'>خطا در بارگذاری اطلاعات سایت.</p>
-                    <p class='text-sm mt-2 text-slate-500'>مطمئن شوید فایل catalog_data.json روی هاست وجود دارد.</p>
+                    <p class='text-sm mt-2 text-slate-500'>سایت در حال بروزرسانی است. لطفاً چند لحظه دیگر صفحه را رفرش کنید.</p>
                 </div>`;
             }
         }
@@ -300,7 +301,7 @@
             db.MainGroups.forEach(g => {
                 const opt = document.createElement('option');
                 opt.value = g.Id;
-                opt.textContent = g.Name;
+                opt.textContent = g.Name || 'بدون نام';
                 mainFilter.appendChild(opt);
             });
         }
@@ -319,7 +320,7 @@
             subs.forEach(s => {
                 const opt = document.createElement('option');
                 opt.value = s.Id;
-                opt.textContent = s.Name;
+                opt.textContent = s.Name || 'بدون نام';
                 subFilter.appendChild(opt);
             });
         }
@@ -330,7 +331,8 @@
             const subId = parseInt(subFilter.value);
 
             filteredProducts = db.Products.filter(p => {
-                const matchSearch = p.Name.toLowerCase().includes(query);
+                // ⭐️ حل مشکل ارور Null Reference در نام کالا ⭐️
+                const matchSearch = (p.Name || '').toLowerCase().includes(query);
                 const matchMain = mainId === 0 || p.MainGroupId === mainId;
                 const matchSub = subId === 0 || p.SubGroupId === subId;
                 return matchSearch && matchMain && matchSub;
@@ -359,25 +361,26 @@
 
             pageData.forEach(prod => {
                 const subG = db.SubGroups.find(s => s.Id === prod.SubGroupId);
-                const badgeName = subG ? subG.Name : 'محصولات';
-                const finalPrc = prod.FinalPrice !== '0' && prod.FinalPrice !== '' ? prod.FinalPrice : 'تماس بگیرید';
+                const badgeName = subG && subG.Name ? subG.Name : 'محصولات';
+                const finalPrc = prod.FinalPrice && prod.FinalPrice !== '0' ? prod.FinalPrice : 'تماس بگیرید';
+                const safeName = prod.Name || 'بدون نام';
 
                 const card = document.createElement('div');
                 card.className = 'bg-white dark:bg-dark-card rounded-2xl shadow-sm hover:shadow-xl border border-slate-200 dark:border-dark-border overflow-hidden transition-all duration-300 flex flex-col group';
                 
                 card.innerHTML = `
                     <div class='h-48 bg-white p-4 flex items-center justify-center relative border-b border-slate-50 dark:border-slate-800 cursor-pointer' onclick='openModal(${prod.Id})'>
-                        <img src='images/${prod.ImageName}' alt='${prod.Name}' loading='lazy' class='max-w-full max-h-full object-contain transition-transform duration-500 group-hover:scale-105 mix-blend-multiply' onerror="this.onerror=null; this.src='${placeholderImg}';">
+                        <img src='images/${prod.ImageName}' alt='${safeName}' loading='lazy' class='max-w-full max-h-full object-contain transition-transform duration-500 group-hover:scale-105 mix-blend-multiply' onerror="this.onerror=null; this.src='${placeholderImg}';">
                         <div class='absolute top-3 right-3 bg-white/90 backdrop-blur text-slate-700 text-[10px] font-bold px-2 py-1 rounded shadow border border-slate-100'>
                             ${badgeName}
                         </div>
                     </div>
                     <div class='p-5 flex flex-col flex-grow'>
-                        <h4 class='font-bold text-slate-800 dark:text-white text-sm leading-snug mb-4 line-clamp-2 cursor-pointer hover:text-brand-500 transition-colors' title='${prod.Name}' onclick='openModal(${prod.Id})'>${prod.Name}</h4>
+                        <h4 class='font-bold text-slate-800 dark:text-white text-sm leading-snug mb-4 line-clamp-2 cursor-pointer hover:text-brand-500 transition-colors' title='${safeName}' onclick='openModal(${prod.Id})'>${safeName}</h4>
                         
                         <div class='mt-auto flex items-end justify-between mb-4'>
                             <div>
-                                <span class='block text-[11px] text-slate-400 dark:text-slate-500 mb-1'>قیمت نهایی (${prod.Unit}):</span>
+                                <span class='block text-[11px] text-slate-400 dark:text-slate-500 mb-1'>قیمت نهایی (${prod.Unit || 'عدد'}):</span>
                                 <div class='text-brand-600 dark:text-brand-400 font-black text-lg flex items-center gap-1'>
                                     ${finalPrc} ${finalPrc !== 'تماس بگیرید' ? `<span class='text-xs font-medium'>تومان</span>` : ''}
                                 </div>
@@ -402,7 +405,7 @@
 
             const prev = document.createElement('button');
             prev.className = `w-10 h-10 flex items-center justify-center rounded-xl font-bold transition-colors ${currentPage === 1 ? 'bg-slate-100 text-slate-400 cursor-not-allowed dark:bg-slate-800 dark:text-slate-600' : 'bg-white text-slate-700 hover:bg-brand-50 hover:text-brand-600 shadow-sm border border-slate-200 dark:bg-dark-card dark:text-slate-300 dark:border-dark-border dark:hover:bg-slate-700'}`;
-            prev.innerHTML = '<i class='fa-solid fa-angle-right'></i>';
+            prev.innerHTML = '<i class="fa-solid fa-angle-right"></i>';
             prev.disabled = currentPage === 1;
             prev.onclick = () => { currentPage--; renderGrid(); window.scrollTo({top: document.getElementById('products-section').offsetTop - 100, behavior: 'smooth'}); };
             pagination.appendChild(prev);
@@ -426,7 +429,7 @@
 
             const next = document.createElement('button');
             next.className = `w-10 h-10 flex items-center justify-center rounded-xl font-bold transition-colors ${currentPage === totalPages ? 'bg-slate-100 text-slate-400 cursor-not-allowed dark:bg-slate-800 dark:text-slate-600' : 'bg-white text-slate-700 hover:bg-brand-50 hover:text-brand-600 shadow-sm border border-slate-200 dark:bg-dark-card dark:text-slate-300 dark:border-dark-border dark:hover:bg-slate-700'}`;
-            next.innerHTML = '<i class='fa-solid fa-angle-left'></i>';
+            next.innerHTML = '<i class="fa-solid fa-angle-left"></i>';
             next.disabled = currentPage === totalPages;
             next.onclick = () => { currentPage++; renderGrid(); window.scrollTo({top: document.getElementById('products-section').offsetTop - 100, behavior: 'smooth'}); };
             pagination.appendChild(next);
@@ -452,8 +455,9 @@
             const prod = db.Products.find(p => p.Id === id);
             if(!prod) return;
             
-            const priceText = prod.FinalPrice !== '0' && prod.FinalPrice !== '' ? `${prod.FinalPrice} تومان` : 'نامشخص';
-            const message = `سلام، وقت بخیر.\nمن از طریق سایت پیام می‌دهم و درخواست سفارش/استعلام کالای زیر را دارم:\n\n📦 نام کالا: ${prod.Name}\n🔢 کد کالا: ${prod.Id}\n💰 قیمت سایت: ${priceText}\n\nلطفاً راهنمایی بفرمایید.`;
+            const priceText = prod.FinalPrice && prod.FinalPrice !== '0' ? `${prod.FinalPrice} تومان` : 'نامشخص';
+            const safeName = prod.Name || 'بدون نام';
+            const message = `سلام، وقت بخیر.\nمن از طریق سایت پیام می‌دهم و درخواست سفارش/استعلام کالای زیر را دارم:\n\n📦 نام کالا: ${safeName}\n🔢 کد کالا: ${prod.Id}\n💰 قیمت سایت: ${priceText}\n\nلطفاً راهنمایی بفرمایید.`;
             
             const url = `https://t.me/${TELEGRAM_NUMBER}?text=${encodeURIComponent(message)}`;
             window.open(url, '_blank');
@@ -465,20 +469,21 @@
 
             const subG = db.SubGroups.find(s => s.Id === prod.SubGroupId);
             const mainG = db.MainGroups.find(m => m.Id === prod.MainGroupId);
+            const safeName = prod.Name || 'بدون نام';
 
-            document.getElementById('modalTitle').innerText = prod.Name;
+            document.getElementById('modalTitle').innerText = safeName;
             
             const imgEl = document.getElementById('modalImage');
             imgEl.src = `images/${prod.ImageName}`;
             imgEl.onerror = function() { this.onerror=null; this.src = placeholderImg; };
 
-            const finalPrc = prod.FinalPrice !== '0' && prod.FinalPrice !== '' ? prod.FinalPrice : 'تماس بگیرید';
+            const finalPrc = prod.FinalPrice && prod.FinalPrice !== '0' ? prod.FinalPrice : 'تماس بگیرید';
             document.getElementById('modalPrice').innerText = finalPrc;
             document.getElementById('modalUnit').innerText = 'واحد: ' + (prod.Unit || 'عدد');
             
             let groupTxt = [];
-            if(mainG) groupTxt.push(mainG.Name);
-            if(subG) groupTxt.push(subG.Name);
+            if(mainG && mainG.Name) groupTxt.push(mainG.Name);
+            if(subG && subG.Name) groupTxt.push(subG.Name);
             document.getElementById('modalGroup').innerText = groupTxt.join(' » ') || 'بدون گروه';
 
             document.getElementById('modalOrderBtn').onclick = () => orderViaTelegram(prod.Id);
