@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang='fa' dir='rtl' class='dark'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>برنامه نویسی سی شارپ | صنایع الکترونیک پیشرو مدار</title>
+    <link rel='icon' href='images/site_639170254671300379_1000343137.webp'>
+    
+    <script src='https://cdn.tailwindcss.com'></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Vazirmatn', 'Tahoma', 'sans-serif'] },
+                    colors: {
+                        brand: { 50: '#fff7ed', 100: '#ffedd5', 500: '#f97316', 600: '#ea580c', 900: '#7c2d12' },
+                        dark: { bg: '#0f172a', card: '#1e293b', border: '#334155' },
+                        telegram: { main: '#0088cc', hover: '#0077b3' },
+                        whatsapp: { main: '#25D366', hover: '#1ebe57' },
+                        instagram: { main: '#E1306C' },
+                        eitaa: { main: '#f48020', hover: '#da6e15' },
+                        rubika: { main: '#8e24aa', hover: '#7b1fa2' }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'>
+    <link href='https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.0.0/Vazirmatn-font-face.css' rel='stylesheet' type='text/css' />
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        .dark ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        .dark ::-webkit-scrollbar-thumb { background: #334155; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        body { font-family: 'Vazirmatn', sans-serif; }
+        .transition-all { transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 300ms; }
+        .modal-active { overflow: hidden; }
+        .btn-social:hover i, .btn-telegram:hover i { transform: scale(1.2) rotate(-5deg); transition: transform 0.3s ease; }
+    </style>
+</head>
+<body class='bg-gray-50 text-slate-800 dark:bg-dark-bg dark:text-slate-200 transition-all duration-300 flex flex-col min-h-screen'>
+    <header class='sticky top-0 z-40 bg-white/90 dark:bg-dark-card/90 backdrop-blur-md shadow-md transition-colors duration-300 border-b border-slate-200 dark:border-dark-border'>
+        <div class='container mx-auto px-4 lg:px-8'>
+            <div class='flex items-center justify-between h-20'>
+                <a href='index.html' class='flex items-center gap-3 group'>
+                    <img src='images/site_639170254108881821_1000343137.webp' class='h-12 w-auto object-contain dark:hidden' alt='صنایع الکترونیک پیشرو مدار' /><img src='images/site_639170254368824799_1000343137.webp' class='h-12 w-auto object-contain hidden dark:block' alt='صنایع الکترونیک پیشرو مدار' />
+                    <div>
+                        <h1 class='font-bold text-xl lg:text-2xl text-slate-900 dark:text-white tracking-tight group-hover:text-brand-500 transition-colors'>صنایع الکترونیک پیشرو مدار</h1>
+                    </div>
+                </a>
+                
+                <nav class='hidden lg:flex items-center gap-6 xl:gap-8 font-medium text-sm xl:text-base'>
+                    <a href='index.html' class='hover:text-brand-500 transition-colors'>صفحه اصلی</a>
+                    <a href='index.html#products-section' class='hover:text-brand-500 transition-colors'>محصولات</a>
+                    <a href='services.html' class='hover:text-brand-500 transition-colors'>خدمات</a>
+                    <a href='articles.html' class='text-brand-500 font-bold border-b-2 border-brand-500 pb-1'>مقالات آموزشی</a>
+                    <a href='news.html' class='hover:text-brand-500 transition-colors'>اخبار</a>
+                    <a href='contact.html' class='hover:text-brand-500 transition-colors'>تماس با ما</a>
+                </nav>
+
+                <div class='flex items-center gap-4'>
+                    <button id='darkModeToggle' class='p-2.5 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors' aria-label='تغییر تم'>
+                        <i class='fa-solid fa-moon text-slate-700 dark:hidden text-lg'></i>
+                        <i class='fa-solid fa-sun text-yellow-400 hidden dark:inline-block text-lg'></i>
+                    </button>
+                    <button id='mobileMenuBtn' class='lg:hidden p-2 text-slate-600 dark:text-slate-300 text-2xl'>
+                        <i class='fa-solid fa-bars'></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div id='mobileMenu' class='hidden lg:hidden bg-white dark:bg-dark-card border-t border-slate-100 dark:border-dark-border px-4 py-4 space-y-2 shadow-inner absolute w-full z-50'>
+            <a href='index.html' class='block px-4 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg'>صفحه اصلی</a>
+            <a href='index.html#products-section' class='block px-4 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg'>لیست محصولات</a>
+            <a href='services.html' class='block px-4 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg'>خدمات ما</a>
+            <a href='articles.html' class='block px-4 py-2 text-brand-500 font-medium bg-brand-50 dark:bg-slate-800 rounded-lg'>مقالات و آموزش‌ها</a>
+            <a href='news.html' class='block px-4 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg'>اخبار مجموعه</a>
+            <a href='contact.html' class='block px-4 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg'>تماس با ما</a>
+        </div>
+    </header>
+    <style>html { scroll-behavior: smooth; }</style>
+    <div class='bg-slate-50 dark:bg-dark-bg py-10 lg:py-16'>
+        <div class='container mx-auto px-4 lg:px-8'>
+            
+            <div class='mb-8 lg:mb-12 border-b border-slate-200 dark:border-slate-800 pb-6'>
+                <h1 class='text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white leading-tight mb-6'>برنامه نویسی سی شارپ</h1>
+                <div class='flex flex-wrap gap-4 text-sm font-medium text-slate-600 dark:text-slate-400'>
+                    <span class='flex items-center gap-2 bg-white dark:bg-dark-card px-4 py-2 rounded-full border border-slate-200 dark:border-slate-700 shadow-sm'><i class='fa-solid fa-user-pen text-brand-500'></i> </span>
+                    <span class='flex items-center gap-2 bg-white dark:bg-dark-card px-4 py-2 rounded-full border border-slate-200 dark:border-slate-700 shadow-sm'><i class='fa-solid fa-calendar-days text-brand-500'></i> 2026/06/14</span>
+                </div>
+            </div>
+
+            <div class='grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start'>
+                
+                <aside class='lg:col-span-4 space-y-6 lg:sticky lg:top-28'>
+                    
+                <div class='bg-white dark:bg-dark-card rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 p-3 mb-6'>
+                    <img src='images/1000344030.webp' class='w-full h-auto rounded-xl object-cover' alt='برنامه نویسی سی شارپ' />
+                </div>
+                    
+                    <div class='bg-white dark:bg-dark-card rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 p-5'>
+                        <h3 class='text-lg font-bold text-slate-800 dark:text-white mb-4 flex items-center gap-2 pb-3 border-b-2 border-brand-500 inline-flex'>
+                            <i class='fa-solid fa-list-ul text-brand-500'></i> فهرست عناوین
+                        </h3>
+                        <ul class='space-y-1 max-h-[50vh] overflow-y-auto pr-2 custom-scrollbar'>
+                            <li><a href='#section-1' class='block py-2.5 text-sm text-slate-600 dark:text-slate-400 hover:text-brand-500 dark:hover:text-brand-400 transition-colors border-b border-slate-100 dark:border-slate-800/50 font-bold'><i class='fa-solid fa-angle-left text-[10px] ml-1.5 text-brand-500'></i>برنامه نویسی سی شارپ؛ زبان قدرتمند مایکروسافت برای توسعه نرم‌افزارهای مدرن</a></li><li><a href='#section-4' class='block py-2 text-sm text-slate-500 dark:text-slate-500 hover:text-brand-500 dark:hover:text-brand-400 transition-colors border-b border-slate-100 dark:border-slate-800/50 mr-4'><i class='fa-solid fa-minus text-[8px] ml-1.5 text-slate-400'></i>مزایای کلیدی برنامه نویسی سی شارپ نسبت به زبان‌های دیگر</a></li><li><a href='#section-8' class='block py-2 text-sm text-slate-500 dark:text-slate-500 hover:text-brand-500 dark:hover:text-brand-400 transition-colors border-b border-slate-100 dark:border-slate-800/50 mr-4'><i class='fa-solid fa-minus text-[8px] ml-1.5 text-slate-400'></i>ابزارها و فریم‌ورک‌های ضروری برای توسعه با سی شارپ</a></li><li><a href='#section-11' class='block py-2 text-sm text-slate-500 dark:text-slate-500 hover:text-brand-500 dark:hover:text-brand-400 transition-colors border-b border-slate-100 dark:border-slate-800/50 mr-4'><i class='fa-solid fa-minus text-[8px] ml-1.5 text-slate-400'></i>بازار کار و درآمد برنامه‌نویسان سی شارپ در ایران و جهان</a></li><li><a href='#section-14' class='block py-2 text-sm text-slate-500 dark:text-slate-500 hover:text-brand-500 dark:hover:text-brand-400 transition-colors border-b border-slate-100 dark:border-slate-800/50 mr-4'><i class='fa-solid fa-minus text-[8px] ml-1.5 text-slate-400'></i>نحوه یادگیری و مسیر پیشرفت در برنامه نویسی سی شارپ</a></li><li><a href='#section-17' class='block py-2 text-sm text-slate-500 dark:text-slate-500 hover:text-brand-500 dark:hover:text-brand-400 transition-colors border-b border-slate-100 dark:border-slate-800/50 mr-4'><i class='fa-solid fa-minus text-[8px] ml-1.5 text-slate-400'></i>نتیجه‌گیری</a></li>
+                        </ul>
+                    </div>
+                </aside>
+
+                <article class='lg:col-span-8 bg-white dark:bg-dark-card rounded-3xl shadow-sm border border-slate-100 dark:border-dark-border p-6 md:p-10 prose dark:prose-invert prose-brand max-w-none w-full overflow-hidden'>
+                    <h2 id='section-1' class='text-3xl font-black mb-6 mt-12 text-slate-900 dark:text-white border-r-4 border-brand-500 pr-4 scroll-mt-24'>برنامه نویسی سی شارپ؛ زبان قدرتمند مایکروسافت برای توسعه نرم‌افزارهای مدرن</h2><p class='mb-6 text-slate-600 dark:text-slate-300 leading-relaxed text-justify'>سی شارپ (C#) یک زبان برنامه‌نویسی شیءگرا، مدرن و چندمنظوره است که توسط شرکت مایکروسافت در اوایل دهه ۲۰۰۰ طراحی شد. این زبان ریشه در خانواده زبان‌های C و C++ دارد و به طور خاص برای بستر دات‌نت (.NET) توسعه یافته است. سی شارپ به دلیل سینتکس پاک، امنیت نوع داده (Type Safety) و پشتیبانی از برنامه‌نویسی ناهمگام، یکی از محبوب‌ترین زبان‌های دنیا است.</p><p class='mb-6 text-slate-600 dark:text-slate-300 leading-relaxed text-justify'>از مهم‌ترین کاربردهای سی شارپ می‌توان به توسعه برنامه‌های دسکتاپ (با WPF و WinForms)، برنامه‌های موبایل (با Xamarin و .NET MAUI)، وب اپلیکیشن‌ها (با ASP.NET Core) و بازی‌های ویدیویی (با موتور بازی یونیتی) اشاره کرد. یادگیری سی شارپ مسیر شغلی بسیار گسترده‌ای را برای توسعه‌دهندگان فراهم می‌کند.</p><h3 id='section-4' class='text-2xl font-bold mb-4 mt-10 text-slate-800 dark:text-slate-100 scroll-mt-24'>مزایای کلیدی برنامه نویسی سی شارپ نسبت به زبان‌های دیگر</h3><p class='mb-6 text-slate-600 dark:text-slate-300 leading-relaxed text-justify'>یکی از دلایل اصلی محبوبیت سی شارپ، جامعه بزرگ توسعه‌دهندگان و پشتیبانی قوی مایکروسافت است. این زبان دارای مدیریت خودکار حافظه (Garbage Collector) بوده که امنیت و پایداری برنامه را افزایش می‌دهد. همچنین قابلیت Language Integrated Query (LINQ) امکان پرس‌وجوی یکپارچه از منابع داده مختلف مانند پایگاه داده، XML و مجموعه‌ها را فراهم می‌کند.</p><p class='mb-6 text-slate-600 dark:text-slate-300 leading-relaxed text-justify'>قابلیت برنامه‌نویسی ناهمگام با کلمات کلیدی async/await، توسعه برنامه‌های سریع و مقیاس‌پذیر را تسهیل می‌کند. همچنین سی شارپ از بازتاب (Reflection)، ویژگی‌ها (Attributes) و کد ناامن (Unsafe Code) پشتیبانی می‌کند که در موارد خاص بسیار کاربردی است. وجود محیط توسعه یکپارچه قدرتمند Visual Studio نیز تجربه شیرینی را برای کدنویسی فراهم می‌آورد.</p><div class='overflow-x-auto my-10 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm'><table class='w-full text-sm text-right whitespace-nowrap'><thead class='bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border-b border-slate-200 dark:border-slate-700'><tr><th class='px-6 py-5 font-bold'>معیار مقایسه</th><th class='px-6 py-5 font-bold'>سی شارپ</th><th class='px-6 py-5 font-bold'>جاوا</th><th class='px-6 py-5 font-bold'>پایتون</th></tr></thead><tbody class='divide-y divide-slate-100 dark:divide-slate-800'><tr class='bg-white dark:bg-dark-card hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors'><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>سرعت اجرا</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>بالا</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>بالا</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>متوسط</td></tr><tr class='bg-white dark:bg-dark-card hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors'><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>نوع داده</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>ایستا</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>ایستا</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>پویا</td></tr><tr class='bg-white dark:bg-dark-card hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors'><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>یادگیری اولیه</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>متوسط</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>متوسط</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>آسان</td></tr><tr class='bg-white dark:bg-dark-card hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors'><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>بازار کار در ایران</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>عالی</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>خوب</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>در حال رشد</td></tr><tr class='bg-white dark:bg-dark-card hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors'><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>مناسب برای بازی</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>بله (یونیتی)</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>کم</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>خیر</td></tr></tbody></table></div><h3 id='section-8' class='text-2xl font-bold mb-4 mt-10 text-slate-800 dark:text-slate-100 scroll-mt-24'>ابزارها و فریم‌ورک‌های ضروری برای توسعه با سی شارپ</h3><p class='mb-6 text-slate-600 dark:text-slate-300 leading-relaxed text-justify'>برای شروع برنامه‌نویسی سی شارپ، ابتدا نیاز به نصب دات‌نت SDK (Software Development Kit) از سایت رسمی مایکروسافت دارید. محیط‌های توسعه محبوب شامل Visual Studio Community (رایگان و کامل)، Visual Studio Code (سبک و چندسکویی) و JetBrains Rider (تجاری و قدرتمند) هستند. استفاده از سیستم کنترل نسخه Git نیز برای پروژه‌های حرفه‌ای توصیه می‌شود.</p><p class='mb-6 text-slate-600 dark:text-slate-300 leading-relaxed text-justify'>فریم‌ورک‌های اصلی سی شارپ عبارتند از: ASP.NET Core برای وب، Entity Framework Core برای کار با پایگاه داده، Windows Forms و WPF برای دسکتاپ ویندوز، و Xamarin.Forms / .NET MAUI برای توسعه موبایل چندسکویی. همچنین کتابخانه‌های ثالثی مانند Newtonsoft.Json برای کار با JSON، AutoMapper برای نگاشت اشیاء و Serilog برای لاگینگ بسیار پرکاربرد هستند.</p><h3 id='section-11' class='text-2xl font-bold mb-4 mt-10 text-slate-800 dark:text-slate-100 scroll-mt-24'>بازار کار و درآمد برنامه‌نویسان سی شارپ در ایران و جهان</h3><p class='mb-6 text-slate-600 dark:text-slate-300 leading-relaxed text-justify'>بر اساس آمار سایت‌های کاریابی معتبر مثل Indeed و LinkedIn، تقاضا برای برنامه‌نویسان سی شارپ در سطح جهانی همچنان رو به رشد است. در ایران نیز به دلیل استفاده گسترده از نرم‌افزارهای حسابداری، مدیریتی، سیستم‌های مالی و بانکی، نیاز به توسعه‌دهندگان سی شارپ بسیار بالاست. شرکت‌های فعال در حوزه پلتفرم‌های تحت ویندوز و ASP.NET Core بیشترین درخواست را دارند.</p>
+            <div class='w-full max-w-3xl mx-auto my-12 bg-white dark:bg-slate-800/80 p-6 md:p-8 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-700'>
+                <canvas class='bce-dynamic-chart' id='chart_canvas_1' data-chart='[{&quot;label&quot;: &quot;برنامه‌های دسکتاپ&quot;, &quot;value&quot;: 40}, {&quot;label&quot;: &quot;وب اپلیکیشن&quot;, &quot;value&quot;: 35}, {&quot;label&quot;: &quot;بازی (یونیتی)&quot;, &quot;value&quot;: 15}, {&quot;label&quot;: &quot;موبایل&quot;, &quot;value&quot;: 7}, {&quot;label&quot;: &quot;سایر&quot;, &quot;value&quot;: 3}]'></canvas>
+            </div><h3 id='section-14' class='text-2xl font-bold mb-4 mt-10 text-slate-800 dark:text-slate-100 scroll-mt-24'>نحوه یادگیری و مسیر پیشرفت در برنامه نویسی سی شارپ</h3><p class='mb-6 text-slate-600 dark:text-slate-300 leading-relaxed text-justify'>برای یادگیری سی شارپ بهتر است ابتدا مفاهیم پایه مانند متغیرها، انواع داده، حلقه‌ها، شرط‌ها و توابع را مسلط شوید. سپس به سراغ مفاهیم شیءگرایی (کلاس، وراثت، پلی‌مورفیسم، کپسوله‌سازی) بروید. پس از آن کار با آرایه‌ها، لیست‌ها، دیکشنری‌ها و مدیریت استثناها را تمرین کنید. منابع معروف شامل کتاب "C# 12 and .NET 8 – Modern Cross-Platform Development" از مارک جی پرایس و وبسایت Microsoft Learn رایگان هستند.</p><p class='mb-6 text-slate-600 dark:text-slate-300 leading-relaxed text-justify'>پس از تسلط بر مبانی، یکی از مسیرهای تخصصی را انتخاب کنید: توسعه وب با ASP.NET Core، توسعه بازی با Unity، یا برنامه‌های دسکتاپ با WPF. ساختن پروژه‌های عملی مانند سیستم مدیریت فروشگاه، فروشگاه اینترنتی ساده یا یک بازی دو بعدی به تثبیت یادگیری کمک شایانی می‌کند. شرکت در چالش‌های کدنویسی در سایت‌هایی مثل LeetCode و Codewars نیز مهارت حل مسئله را افزایش می‌دهد.</p><h3 id='section-17' class='text-2xl font-bold mb-4 mt-10 text-slate-800 dark:text-slate-100 scroll-mt-24'>نتیجه‌گیری</h3><p class='mb-6 text-slate-600 dark:text-slate-300 leading-relaxed text-justify'>سی شارپ به عنوان یک زبان قدرتمند، مدرن و چندمنظوره، گزینه‌ای عالی برای توسعه‌دهندگان تازه‌کار و حرفه‌ای محسوب می‌شود. این زبان با بهره‌گیری از بستر دات‌نت، امکانات بسیار گسترده‌ای برای ساخت انواع نرم‌افزار از اپلیکیشن‌های موبایل و دسکتاپ تا وب‌سرویس‌های مقیاس‌پذیر و بازی‌های سه بعدی فراهم می‌کند. با توجه به حمایت مایکروسافت و جامعه بزرگ برنامه‌نویسان، یادگیری سی شارپ یک سرمایه‌گذاری شغلی مطمئن و پایدار است.</p><ul class='list-disc list-inside mb-8 space-y-2 text-slate-600 dark:text-slate-300 pr-4 marker:text-brand-500'><li>کلیدواژه‌های اصلی: برنامه نویسی سی شارپ</li><li>کلیدواژه‌های فرعی: C#، آموزش سی شارپ، کاربرد سی شارپ، بازار کار سی شارپ، فریمورک سی شارپ، دات‌نت، ASP.NET Core، یونیتی سی شارپ</li><li>کلیدواژه بلند (Long-tail): نحوه یادگیری برنامه نویسی سی شارپ از صفر</li><li>کلیدواژه مکانی: حقوق برنامه نویس سی شارپ در ایران ۱۴۰۴</li><li>کلیدواژه سوالی: سی شارپ بهتر است یا جاوا؟</li></ul>
+                </article>
+
+            </div>
+        </div>
+    </div>
+    <footer id='footer' class='bg-slate-900 text-slate-300 pt-16 pb-8 border-t-4 border-brand-500 mt-auto'>
+        <div class='container mx-auto px-4'>
+            <div class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12'>
+                
+                <div>
+                    <h4 class='text-white text-xl font-bold mb-6 flex items-center gap-2'>
+                        <i class='fa-solid fa-industry text-brand-500'></i> صنایع الکترونیک پیشرو مدار
+                    </h4>
+                    <p class='text-sm leading-relaxed mb-6 text-slate-400'>با سال‌ها تجربه و تعهد، آماده خدمت‌رسانی و ارائه بهترین کیفیت به شما هستیم.</p>
+                    <div class='flex gap-3 flex-wrap'>
+                        <a href='https://t.me/azmoomsun' target='_blank' class='w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-[#0088cc] hover:text-white transition-colors'><i class='fa-brands fa-telegram text-lg'></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class='text-white text-lg font-bold mb-6'>دسترسی سریع</h4>
+                    <ul class='space-y-3 text-sm'>
+                        <li><a href='index.html' class='hover:text-brand-400 transition-colors flex items-center gap-2'><i class='fa-solid fa-angle-left text-xs'></i> صفحه اصلی</a></li>
+                        <li><a href='services.html' class='hover:text-brand-400 transition-colors flex items-center gap-2'><i class='fa-solid fa-angle-left text-xs'></i> خدمات ما</a></li>
+                        <li><a href='articles.html' class='hover:text-brand-400 transition-colors flex items-center gap-2'><i class='fa-solid fa-angle-left text-xs'></i> مقالات آموزشی</a></li>
+                        <li><a href='news.html' class='hover:text-brand-400 transition-colors flex items-center gap-2'><i class='fa-solid fa-angle-left text-xs'></i> اخبار مجموعه</a></li>
+                        <li><a href='contact.html' class='hover:text-brand-400 transition-colors flex items-center gap-2'><i class='fa-solid fa-angle-left text-xs'></i> تماس با ما</a></li>
+                    </ul>
+                </div>
+
+                <div class='lg:col-span-2'>
+                    <h4 class='text-white text-lg font-bold mb-6'>ارتباط با ما</h4>
+                    <ul class='space-y-4 text-sm'>
+                        <li class='flex items-start gap-3'><i class='fa-solid fa-location-dot mt-1 text-brand-500'></i><div><strong class='block text-white mb-1'>آدرس (آدرس مرکزی):</strong><span>تهران، شهرک صنعتی چهاردانگه، بلوار نواب، پلاک ۷۵</span></div></li>
+                        <li class='flex items-center gap-3'><i class='fa-solid fa-phone text-brand-500'></i><span dir='ltr' class='text-right w-full'>021-66998877</span></li>
+                        <li class='flex items-center gap-3'><i class='fa-solid fa-mobile-screen text-brand-500'></i><span dir='ltr' class='text-right w-full'>09125551234</span></li>
+                        <li class='flex items-center gap-3'><i class='fa-solid fa-envelope text-brand-500'></i><span class='text-right w-full'>info@pishromadar.com</span></li>
+                    </ul>
+                </div>
+
+            </div>
+            
+            <div class='pt-8 border-t border-slate-800 text-center text-xs text-slate-500 flex flex-col md:flex-row justify-between items-center gap-4'>
+                <p>تمامی حقوق محفوظ است. © 1403</p>
+                <p>طراحی و توسعه سایت توسط پلتفرم هوشمند aicount</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        function setupDarkMode() {
+            const toggle = document.getElementById('darkModeToggle');
+            const html = document.documentElement;
+            if (!('theme' in localStorage)) localStorage.theme = 'dark';
+            if (localStorage.theme === 'dark') html.classList.add('dark'); else html.classList.remove('dark');
+            if(toggle) {
+                toggle.addEventListener('click', () => {
+                    html.classList.toggle('dark');
+                    localStorage.theme = html.classList.contains('dark') ? 'dark' : 'light';
+                });
+            }
+        }
+        function setupMobileMenu() {
+            const btn = document.getElementById('mobileMenuBtn');
+            const menu = document.getElementById('mobileMenu');
+            if(!btn || !menu) return;
+            const icon = btn.querySelector('i');
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+                if(icon) icon.className = menu.classList.contains('hidden') ? 'fa-solid fa-bars' : 'fa-solid fa-xmark';
+            });
+        }
+    </script>
+    <script src='https://cdn.jsdelivr.net/npm/chart.js'></script>
+    <script>
+        const rawData = []; 
+        let filteredData = rawData;
+        let currentPage = 1;
+        const itemsPerPage = 12;
+
+        const grid = document.getElementById('contentGrid');
+        const searchInput = document.getElementById('searchInput');
+        const pagination = document.getElementById('pagination');
+        const emptyState = document.getElementById('emptyState');
+        const resultCount = document.getElementById('resultCount');
+
+        if(grid) {
+            function applyFilters() {
+                const query = searchInput.value.trim().toLowerCase();
+                filteredData = rawData.filter(p => (p.Title || '').toLowerCase().includes(query));
+                if(resultCount) resultCount.innerHTML = `نمایش <span class='font-black'>${filteredData.length}</span> مورد`;
+                renderGrid();
+            }
+
+            function renderGrid() {
+                grid.innerHTML = '';
+                if(filteredData.length === 0) {
+                    emptyState.classList.remove('hidden'); emptyState.classList.add('flex');
+                    pagination.innerHTML = ''; return;
+                } else {
+                    emptyState.classList.add('hidden'); emptyState.classList.remove('flex');
+                }
+
+                const start = (currentPage - 1) * itemsPerPage;
+                const pageData = filteredData.slice(start, start + itemsPerPage);
+
+                pageData.forEach(item => {
+                    // ⭐️ اصلاح پسوند تصاویر به webp در جاوا اسکریپت ⭐️
+                    const rawImg = item.Image || '';
+                    const dotIdx = rawImg.lastIndexOf('.');
+                    const safeImgName = dotIdx > 0 ? rawImg.substring(0, dotIdx) : rawImg;
+                    const imgUrl = safeImgName ? `images/${safeImgName}.webp` : 'https://placehold.co/600x600/1e293b/fff?text=بدون+تصویر';
+                    
+                    const card = document.createElement('div');
+                    card.className = 'bg-white dark:bg-dark-card rounded-2xl shadow-sm hover:shadow-xl border border-slate-200 dark:border-dark-border overflow-hidden transition-all duration-300 flex flex-col group';
+                    
+                    // ⭐️ تبدیل مستطیل به مربع (aspect-square) ⭐️
+                    card.innerHTML = `
+                        <div class='aspect-square overflow-hidden relative'>
+                            <img src='${imgUrl}' class='w-full h-full object-cover group-hover:scale-110 transition-transform duration-500'>
+                            <div class='absolute top-3 left-3 bg-brand-500 text-white text-[10px] font-bold px-3 py-1.5 rounded-full'>${item.Date}</div>
+                        </div>
+                        <div class='p-5 flex flex-col flex-grow'>
+                            <h4 class='font-bold text-slate-800 dark:text-white text-lg mb-3 line-clamp-2 leading-tight group-hover:text-brand-500 transition-colors'>${item.Title}</h4>
+                            <div class='text-sm text-slate-500 dark:text-slate-400 mb-5 flex items-center gap-2'><i class='fa-solid fa-user-pen'></i> ${item.Author}</div>
+                            <a href='-${item.Id}.html' class='mt-auto block w-full text-center bg-slate-100 hover:bg-brand-500 text-slate-700 hover:text-white dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-brand-500 py-3 rounded-xl font-bold transition-colors'>مشاهده کامل</a>
+                        </div>`;
+                    grid.appendChild(card);
+                });
+                renderPagination();
+            }
+
+            function renderPagination() {
+                pagination.innerHTML = '';
+                const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+                if(totalPages <= 1) return;
+                for(let i=1; i<=totalPages; i++) {
+                    const btn = document.createElement('button');
+                    const isActive = i === currentPage;
+                    btn.className = `w-10 h-10 flex items-center justify-center rounded-xl font-bold transition-all shadow-sm border ${isActive ? 'bg-brand-500 text-white border-brand-500 scale-110' : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50 dark:bg-dark-card dark:text-slate-300 dark:border-dark-border dark:hover:bg-slate-700'}`;
+                    btn.innerText = i;
+                    btn.onclick = () => { currentPage = i; renderGrid(); window.scrollTo({top: 0, behavior: 'smooth'}); };
+                    pagination.appendChild(btn);
+                }
+            }
+
+            if(searchInput) searchInput.addEventListener('input', () => { currentPage = 1; applyFilters(); });
+            applyFilters();
+        }
+
+        function initDynamicCharts() {
+            const chartCanvases = document.querySelectorAll('.bce-dynamic-chart');
+            chartCanvases.forEach(canvas => {
+                try {
+                    const rawJson = canvas.getAttribute('data-chart').replace(/&quot;/g, '"').replace(/&apos;/g, "'");
+                    const dataObj = JSON.parse(rawJson);
+                    
+                    if(!Array.isArray(dataObj) || dataObj.length === 0) return;
+                    
+                    const keys = Object.keys(dataObj[0]);
+                    const labelKey = keys[0]; 
+                    const valueKey = keys[1]; 
+
+                    const labels = dataObj.map(x => x[labelKey]);
+                    const values = dataObj.map(x => parseFloat(x[valueKey] || 0));
+
+                    new Chart(canvas, {
+                        type: 'bar',
+                        data: {
+                            labels: labels,
+                            datasets: [{ label: 'آمار و اطلاعات', data: values, backgroundColor: '#f97316', borderRadius: 6 }]
+                        },
+                        options: { responsive: true, plugins: { legend: { position: 'bottom' } } }
+                    });
+                } catch(e) { console.error('Error rendering chart:', e); }
+            });
+        }
+
+        window.addEventListener('DOMContentLoaded', () => { setupDarkMode(); setupMobileMenu(); initDynamicCharts(); });
+    </script>
+</body>
+</html>
