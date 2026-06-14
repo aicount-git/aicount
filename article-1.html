@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang='fa' dir='rtl' class='dark'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>محصولات صنایع الکترونیک پیشرو مدار | صنایع الکترونیک پیشرو مدار</title>
+    <link rel='icon' href='images/site_639170254671300379_1000343137.png'>
+    
+    <script src='https://cdn.tailwindcss.com'></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Vazirmatn', 'Tahoma', 'sans-serif'] },
+                    colors: {
+                        brand: { 50: '#fff7ed', 100: '#ffedd5', 500: '#f97316', 600: '#ea580c', 900: '#7c2d12' },
+                        dark: { bg: '#0f172a', card: '#1e293b', border: '#334155' },
+                        telegram: { main: '#0088cc', hover: '#0077b3' },
+                        whatsapp: { main: '#25D366', hover: '#1ebe57' },
+                        instagram: { main: '#E1306C' },
+                        eitaa: { main: '#f48020', hover: '#da6e15' },
+                        rubika: { main: '#8e24aa', hover: '#7b1fa2' }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'>
+    <link href='https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.0.0/Vazirmatn-font-face.css' rel='stylesheet' type='text/css' />
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        .dark ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        .dark ::-webkit-scrollbar-thumb { background: #334155; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        body { font-family: 'Vazirmatn', sans-serif; }
+        .transition-all { transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 300ms; }
+        .modal-active { overflow: hidden; }
+        .btn-social:hover i, .btn-telegram:hover i { transform: scale(1.2) rotate(-5deg); transition: transform 0.3s ease; }
+    </style>
+</head>
+<body class='bg-gray-50 text-slate-800 dark:bg-dark-bg dark:text-slate-200 transition-all duration-300 flex flex-col min-h-screen'>
+    <header class='sticky top-0 z-40 bg-white/90 dark:bg-dark-card/90 backdrop-blur-md shadow-md transition-colors duration-300 border-b border-slate-200 dark:border-dark-border'>
+        <div class='container mx-auto px-4 lg:px-8'>
+            <div class='flex items-center justify-between h-20'>
+                <a href='index.html' class='flex items-center gap-3 group'>
+                    <img src='images/site_639170254108881821_1000343137.png' class='h-12 w-auto object-contain dark:hidden' alt='صنایع الکترونیک پیشرو مدار' /><img src='images/site_639170254368824799_1000343137.png' class='h-12 w-auto object-contain hidden dark:block' alt='صنایع الکترونیک پیشرو مدار' />
+                    <div>
+                        <h1 class='font-bold text-xl lg:text-2xl text-slate-900 dark:text-white tracking-tight group-hover:text-brand-500 transition-colors'>صنایع الکترونیک پیشرو مدار</h1>
+                    </div>
+                </a>
+                
+                <nav class='hidden lg:flex items-center gap-6 xl:gap-8 font-medium text-sm xl:text-base'>
+                    <a href='index.html' class='hover:text-brand-500 transition-colors'>صفحه اصلی</a>
+                    <a href='index.html#products-section' class='hover:text-brand-500 transition-colors'>محصولات</a>
+                    <a href='services.html' class='hover:text-brand-500 transition-colors'>خدمات</a>
+                    <a href='articles.html' class='text-brand-500 font-bold border-b-2 border-brand-500 pb-1'>مقالات آموزشی</a>
+                    <a href='news.html' class='hover:text-brand-500 transition-colors'>اخبار</a>
+                    <a href='contact.html' class='hover:text-brand-500 transition-colors'>تماس با ما</a>
+                </nav>
+
+                <div class='flex items-center gap-4'>
+                    <button id='darkModeToggle' class='p-2.5 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors' aria-label='تغییر تم'>
+                        <i class='fa-solid fa-moon text-slate-700 dark:hidden text-lg'></i>
+                        <i class='fa-solid fa-sun text-yellow-400 hidden dark:inline-block text-lg'></i>
+                    </button>
+                    <button id='mobileMenuBtn' class='lg:hidden p-2 text-slate-600 dark:text-slate-300 text-2xl'>
+                        <i class='fa-solid fa-bars'></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div id='mobileMenu' class='hidden lg:hidden bg-white dark:bg-dark-card border-t border-slate-100 dark:border-dark-border px-4 py-4 space-y-2 shadow-inner absolute w-full z-50'>
+            <a href='index.html' class='block px-4 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg'>صفحه اصلی</a>
+            <a href='index.html#products-section' class='block px-4 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg'>لیست محصولات</a>
+            <a href='services.html' class='block px-4 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg'>خدمات ما</a>
+            <a href='articles.html' class='block px-4 py-2 text-brand-500 font-medium bg-brand-50 dark:bg-slate-800 rounded-lg'>مقالات و آموزش‌ها</a>
+            <a href='news.html' class='block px-4 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg'>اخبار مجموعه</a>
+            <a href='contact.html' class='block px-4 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg'>تماس با ما</a>
+        </div>
+    </header>
+    <article class='flex-grow'>
+        <header class='relative bg-slate-900 bg-[url('images/1000344028.png')] bg-cover bg-center bg-no-repeat bg-blend-overlay text-white py-24 lg:py-32'>
+            <div class='absolute inset-0 bg-slate-900/80 backdrop-blur-sm'></div>
+            <div class='container mx-auto px-4 relative z-10 text-center max-w-4xl'>
+                <h1 class='text-3xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight'>محصولات صنایع الکترونیک پیشرو مدار</h1>
+                <div class='flex flex-wrap justify-center gap-4 text-slate-300 text-sm font-medium'>
+                    <div class='flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full backdrop-blur-md border border-white/20'><i class='fa-solid fa-user'></i> mohammad</div>
+                    <div class='flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full backdrop-blur-md border border-white/20'><i class='fa-solid fa-calendar'></i> 2026/06/14</div>
+                </div>
+            </div>
+        </header>
+        
+        <div class='container mx-auto px-4 py-12 lg:py-20'>
+            <div class='max-w-4xl mx-auto bg-white dark:bg-dark-card rounded-3xl shadow-xl shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-dark-border p-6 md:p-12 prose dark:prose-invert prose-brand lg:prose-lg mx-auto'>
+            <h2 class='text-3xl font-black mb-6 mt-12 text-slate-900 dark:text-white border-r-4 border-brand-500 pr-4'>محصولات صنایع الکترونیک پیشرو مدار؛ از برد تا خط تولید حرفه‌ای</h2><p class='mb-6 text-slate-600 dark:text-slate-300 leading-relaxed text-justify'>صنایع الکترونیک پیشرو مدار یکی از تأمین‌کنندگان برتر قطعات و تجهیزات الکترونیک در ایران است. محصولات این شرکت طیف وسیعی از بردهای مدارچاپی، قطعات نصب سطحی، ابزار دقیق و تجهیزات خط مونتاژ را شامل می‌شود. کیفیت بالا و تطابق با استانداردهای جهانی از ویژگی‌های کلیدی این محصولات محسوب می‌شود.</p><p class='mb-6 text-slate-600 dark:text-slate-300 leading-relaxed text-justify'>در این مقاله به بررسی تخصصی مهم‌ترین محصولات صنایع الکترونیک پیشرو مدار می‌پردازیم. همچنین راهنمایی کاربردی برای انتخاب قطعه مناسب با نیاز پروژه‌های الکترونیکی ارائه خواهد شد. اگر به دنبال منبعی جامع برای تأمین قطعات با دوام و قابل اطمینان هستید، این مطلب را از دست ندهید.</p><h3 class='text-2xl font-bold mb-4 mt-10 text-slate-800 dark:text-slate-100'>۱. بردهای مدارچاپی (PCB) پیشرو مدار</h3><p class='mb-6 text-slate-600 dark:text-slate-300 leading-relaxed text-justify'>بردهای مدارچاپی تولید شده در صنایع الکترونیک پیشرو مدار در دو دسته اصلی بردهای سخت (Rigid) و بردهای انعطاف‌پذیر (Flexible) عرضه می‌شوند. این بردها در تعداد لایه‌های متفاوت از ۱ تا ۱۲ لایه قابل سفارش هستند. مواد اولیه شامل FR4 با Tg بالا، آلومینیوم برای بردهای قدرت و پلی‌ایمید برای بردهای فلکس است. کیفیت لحیم‌کاری و دقت ابعادی این بردها خطای نویز را به حداقل می‌رساند.</p><div class='overflow-x-auto my-8 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm'><table class='w-full text-sm text-right whitespace-nowrap'><thead class='bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border-b border-slate-200 dark:border-slate-700'><tr><th class='px-6 py-4 font-bold'>نوع برد</th><th class='px-6 py-4 font-bold'>تعداد لایه</th><th class='px-6 py-4 font-bold'>کاربرد اصلی</th><th class='px-6 py-4 font-bold'>ضخامت استاندارد (میلی‌متر)</th><th class='px-6 py-4 font-bold'>قیمت هر سانتی‌متر مربع (تومان)</th></tr></thead><tbody class='divide-y divide-slate-100 dark:divide-slate-800'><tr class='bg-white dark:bg-dark-card hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors'><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>تک لایه معمولی</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>1</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>منابع تغذیه ساده، مدارات LED</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>1.0-1.6</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>1.200</td></tr><tr class='bg-white dark:bg-dark-card hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors'><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>دو لایه با کیفیت</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>2</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>مدارات صوتی و دیجیتال</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>1.6</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>2.500</td></tr><tr class='bg-white dark:bg-dark-card hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors'><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>چهار لایه</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>4</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>پردازنده‌های صنعتی، ارتباطات</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>1.6</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>5.800</td></tr><tr class='bg-white dark:bg-dark-card hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors'><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>شش لایه</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>6</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>تجهیزات پزشکی و هوافضا</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>2.0</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>9.200</td></tr><tr class='bg-white dark:bg-dark-card hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors'><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>برد فلکس</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>2</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>دوربین‌ها، حسگرهای پوشیدنی</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>0.2-0.3</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>15.000</td></tr></tbody></table></div><h4 class='text-xl font-bold mb-3 mt-8 text-slate-700 dark:text-slate-200'>مزایای بردهای پیشرو مدار نسبت به رقبا</h4><h3 class='text-2xl font-bold mb-4 mt-10 text-slate-800 dark:text-slate-100'>۲. قطعات SMD و آی‌سی‌های حرفه‌ای</h3><p class='mb-6 text-slate-600 dark:text-slate-300 leading-relaxed text-justify'>قطعات نصب سطحی (SMD) ارائه شده توسط پیشرو مدار شامل مقاومت‌های فیلم فلزی با دقت 1%، خازن‌های سرامیکی کلاس 1 و 2، دیودهای سریع، ترانزیستورهای قدرت کوچک و آی‌سی‌های منطقی سری 74HC و 4000 می‌شود. این قطعات در سایزهای 0402، 0603، 0805 و 1206 موجود هستند. تمامی قطعات پیش از بسته‌بندی با دستگاه ال‌سی‌آر تست می‌شوند تا از سلامت کامل آنها اطمینان حاصل گردد.</p><div class='overflow-x-auto my-8 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm'><table class='w-full text-sm text-right whitespace-nowrap'><thead class='bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border-b border-slate-200 dark:border-slate-700'><tr><th class='px-6 py-4 font-bold'>نوع قطعه SMD</th><th class='px-6 py-4 font-bold'>سایز معمول</th><th class='px-6 py-4 font-bold'>تحمل یا دقت</th><th class='px-6 py-4 font-bold'>کاربرد نمونه</th><th class='px-6 py-4 font-bold'>قیمت هر عدد (تومان)</th></tr></thead><tbody class='divide-y divide-slate-100 dark:divide-slate-800'><tr class='bg-white dark:bg-dark-card hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors'><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>مقاومت ۱۰۰ اهم</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>0603</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>1%</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>تقسیم ولتاژ دیجیتال</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>520</td></tr><tr class='bg-white dark:bg-dark-card hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors'><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>خازن ۱۰۰ نانوفاراد</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>0805</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>10%</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>فیلتر نویز تغذیه</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>780</td></tr><tr class='bg-white dark:bg-dark-card hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors'><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>دیود شاتکی SS34</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>DO-214AB</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>ولتاژ 40 ولت</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>یکسوساز فرکانس بالا</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>1.200</td></tr><tr class='bg-white dark:bg-dark-card hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors'><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>ترانزیستور BC817</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>SOt-23</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>جریان 500 میلی‌آمپر</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>سوئیچینگ کم توان</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>1.450</td></tr><tr class='bg-white dark:bg-dark-card hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors'><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>آی‌سی تقویت‌کننده LM358</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>SOP8</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>نویز پایین</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>پردازش سیگنال آنالوگ</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>8.500</td></tr></tbody></table></div><h3 class='text-2xl font-bold mb-4 mt-10 text-slate-800 dark:text-slate-100'>۳. تجهیزات تست و عیب‌یابی پیشرفته</h3><p class='mb-6 text-slate-600 dark:text-slate-300 leading-relaxed text-justify'>برای مونتاژ و تعمیر حرفه‌ای بردها، پیشرو مدار طیف گسترده‌ای از تجهیزات تست و عیب‌یابی را عرضه می‌کند. این محصولات شامل اسیلوسکوپ‌های دیجیتال ۱۰۰ مگاهرتز، مولتی‌مترهای حقیقی (True RMS)، اِل‌سی‌آر مترهای دقیق، منبع تغذیه آزمایشگاهی با قابلیت برنامه‌ریزی و دستگاه‌های تست خودکار آی‌سی هستند. همچنین دستگاه‌های بازرسی خودکار نوری (AOI) برای خطوط تولید انبوه در این مجموعه موجود است.</p><p class='mb-6 text-slate-600 dark:text-slate-300 leading-relaxed text-justify'>نمودار فوق توزیع فروش تجهیزات تست در صنایع الکترونیک پیشرو مدار در شش ماهه اول سال جاری را نشان می‌دهد. اسیلوسکوپ‌های دیجیتال با ۳۸ درصد بیشترین سهم را دارند و پس از آن مولتی‌مترها با ۲۷ درصد قرار گرفته‌اند. دستگاه‌های تخصصی‌تر مانند ال‌سی‌آر متر و منبع تغذیه سهم ۱۵ و ۱۲ درصدی دارند. دستگاه AOI علی‌رغم کارایی بالا به دلیل قیمت، سهم ۸ درصدی فروش را تشکیل می‌دهد.</p><h3 class='text-2xl font-bold mb-4 mt-10 text-slate-800 dark:text-slate-100'>۴. ابزارهای مونتاژ و لحیم‌کاری حرفه‌ای</h3><p class='mb-6 text-slate-600 dark:text-slate-300 leading-relaxed text-justify'>خطوط مونتاژ مدرن نیازمند ابزارهای دقیق و با قابلیت کنترل دما هستند. پیشرو مدار ایستگاه‌های لحیم کاری حرارت غیرمستقیم (هات ایر)، هویه‌های کنترل دمای دیجیتال، هیترهای پیش گرم برای بردهای چندلایه و دستگاه‌های لحیم کاری فرکانسی را تأمین می‌کند. همچنین انواع فلوکس‌های بدون تمیزی (No-clean)، سیم لحیم کم دود، و نوارهای جداسازی قطعات SMD با عرض‌های مختلف موجود است.</p><h4 class='text-xl font-bold mb-3 mt-8 text-slate-700 dark:text-slate-200'>قیمت و گارانتی محصولات اصلی مونتاژ</h4><div class='overflow-x-auto my-8 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm'><table class='w-full text-sm text-right whitespace-nowrap'><thead class='bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border-b border-slate-200 dark:border-slate-700'><tr><th class='px-6 py-4 font-bold'>نام ابزار</th><th class='px-6 py-4 font-bold'>قدرت (وات)</th><th class='px-6 py-4 font-bold'>قابلیت کلیدی</th><th class='px-6 py-4 font-bold'>قیمت (تومان)</th><th class='px-6 py-4 font-bold'>گارانتی (ماه)</th></tr></thead><tbody class='divide-y divide-slate-100 dark:divide-slate-800'><tr class='bg-white dark:bg-dark-card hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors'><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>هویه دیجیتال ۹۳۶</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>50</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>کنترل PID دقت یک درجه</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>1.750.000</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>12</td></tr><tr class='bg-white dark:bg-dark-card hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors'><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>هات ایر ۸۵۸D</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>650</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>پایه مغناطیسی، سه نازل</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>2.890.000</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>12</td></tr><tr class='bg-white dark:bg-dark-card hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors'><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>هیتر پیش گرم ۸۵۳۱</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>400</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>سطح ۱۵×۱۵ سانتی‌متر</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>6.200.000</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>18</td></tr><tr class='bg-white dark:bg-dark-card hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors'><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>دستگاه لحیم فرکانسی</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>200</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>جلوگیری از نویز استاتیک</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>4.450.000</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>24</td></tr></tbody></table></div><h3 class='text-2xl font-bold mb-4 mt-10 text-slate-800 dark:text-slate-100'>نتیجه‌گیری و جمع‌بندی نهایی</h3><p class='mb-6 text-slate-600 dark:text-slate-300 leading-relaxed text-justify'>محصولات صنایع الکترونیک پیشرو مدار با تنوع بالا، کیفیت صنعتی و پشتیبانی تخصصی، منبع قابل اعتمادی برای مهندسان، تکنسین‌ها و تولیدکنندگان است. چه به دنبال بردهای پیچیده چندلایه باشید، چه نیاز به قطعات دقیق SMD یا ابزارهای حرفه‌ای تست و مونتاژ داشته باشید، این مجموعه پاسخگوی نیاز شما خواهد بود. قیمت‌های رقابتی همراه با گارانتی معتبر و موجودی کالا در انبار، ریسک خرید را به حداقل می‌رساند.</p><p class='mb-6 text-slate-600 dark:text-slate-300 leading-relaxed text-justify'>توصیه می‌شود پیش از خرید نهایی، با کارشناسان فنی پیشرو مدار مشورت کنید تا محصول دقیقاً متناسب با پروژه شما انتخاب شود. همچنین استفاده از قطعات اصلی و تجهیزات کالیبره شده، عمر مفید دستگاه نهایی شما را تا ۴۰ درصد افزایش خواهد داد. برای دریافت کاتالوگ تخصصی و استعلام قیمت روز، می‌توانید از طریق وب‌سایت رسمی اقدام کنید.</p>
+            </div>
+        </div>
+    </article>
+    <footer id='footer' class='bg-slate-900 text-slate-300 pt-16 pb-8 border-t-4 border-brand-500 mt-auto'>
+        <div class='container mx-auto px-4'>
+            <div class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12'>
+                
+                <div>
+                    <h4 class='text-white text-xl font-bold mb-6 flex items-center gap-2'>
+                        <i class='fa-solid fa-industry text-brand-500'></i> صنایع الکترونیک پیشرو مدار
+                    </h4>
+                    <p class='text-sm leading-relaxed mb-6 text-slate-400'>با سال‌ها تجربه و تعهد، آماده خدمت‌رسانی و ارائه بهترین کیفیت به شما هستیم.</p>
+                    <div class='flex gap-3 flex-wrap'>
+                        <a href='https://t.me/azmoomsun' target='_blank' class='w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-[#0088cc] hover:text-white transition-colors'><i class='fa-brands fa-telegram text-lg'></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class='text-white text-lg font-bold mb-6'>دسترسی سریع</h4>
+                    <ul class='space-y-3 text-sm'>
+                        <li><a href='index.html' class='hover:text-brand-400 transition-colors flex items-center gap-2'><i class='fa-solid fa-angle-left text-xs'></i> صفحه اصلی</a></li>
+                        <li><a href='services.html' class='hover:text-brand-400 transition-colors flex items-center gap-2'><i class='fa-solid fa-angle-left text-xs'></i> خدمات ما</a></li>
+                        <li><a href='articles.html' class='hover:text-brand-400 transition-colors flex items-center gap-2'><i class='fa-solid fa-angle-left text-xs'></i> مقالات آموزشی</a></li>
+                        <li><a href='news.html' class='hover:text-brand-400 transition-colors flex items-center gap-2'><i class='fa-solid fa-angle-left text-xs'></i> اخبار مجموعه</a></li>
+                        <li><a href='contact.html' class='hover:text-brand-400 transition-colors flex items-center gap-2'><i class='fa-solid fa-angle-left text-xs'></i> تماس با ما</a></li>
+                    </ul>
+                </div>
+
+                <div class='lg:col-span-2'>
+                    <h4 class='text-white text-lg font-bold mb-6'>ارتباط با ما</h4>
+                    <ul class='space-y-4 text-sm'>
+                        <li class='flex items-start gap-3'><i class='fa-solid fa-location-dot mt-1 text-brand-500'></i><div><strong class='block text-white mb-1'>آدرس (آدرس مرکزی):</strong><span>تهران، شهرک صنعتی چهاردانگه، بلوار نواب، پلاک ۷۵</span></div></li>
+                        <li class='flex items-center gap-3'><i class='fa-solid fa-phone text-brand-500'></i><span dir='ltr' class='text-right w-full'>021-66998877</span></li>
+                        <li class='flex items-center gap-3'><i class='fa-solid fa-mobile-screen text-brand-500'></i><span dir='ltr' class='text-right w-full'>09125551234</span></li>
+                        <li class='flex items-center gap-3'><i class='fa-solid fa-envelope text-brand-500'></i><span class='text-right w-full'>info@pishromadar.com</span></li>
+                    </ul>
+                </div>
+
+            </div>
+            
+            <div class='pt-8 border-t border-slate-800 text-center text-xs text-slate-500 flex flex-col md:flex-row justify-between items-center gap-4'>
+                <p>تمامی حقوق محفوظ است. © 1403</p>
+                <p>طراحی و توسعه سایت توسط پلتفرم هوشمند aicount</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        function setupDarkMode() {
+            const toggle = document.getElementById('darkModeToggle');
+            const html = document.documentElement;
+            if (!('theme' in localStorage)) localStorage.theme = 'dark';
+            if (localStorage.theme === 'dark') html.classList.add('dark'); else html.classList.remove('dark');
+            if(toggle) {
+                toggle.addEventListener('click', () => {
+                    html.classList.toggle('dark');
+                    localStorage.theme = html.classList.contains('dark') ? 'dark' : 'light';
+                });
+            }
+        }
+        function setupMobileMenu() {
+            const btn = document.getElementById('mobileMenuBtn');
+            const menu = document.getElementById('mobileMenu');
+            if(!btn || !menu) return;
+            const icon = btn.querySelector('i');
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+                if(icon) icon.className = menu.classList.contains('hidden') ? 'fa-solid fa-bars' : 'fa-solid fa-xmark';
+            });
+        }
+    </script>
+    <!-- Chart.js Library -->
+    <script src='https://cdn.jsdelivr.net/npm/chart.js'></script>
+    <script>
+        // اسکریپت مربوط به لیست (جستجو و پیجینگ)
+        const rawData = []; // تزریق شده از سی‌شارپ
+        let filteredData = rawData;
+        let currentPage = 1;
+        const itemsPerPage = 12;
+
+        const grid = document.getElementById('contentGrid');
+        const searchInput = document.getElementById('searchInput');
+        const pagination = document.getElementById('pagination');
+        const emptyState = document.getElementById('emptyState');
+        const resultCount = document.getElementById('resultCount');
+
+        if(grid) {
+            function applyFilters() {
+                const query = searchInput.value.trim().toLowerCase();
+                filteredData = rawData.filter(p => (p.Title || '').toLowerCase().includes(query));
+                if(resultCount) resultCount.innerHTML = `نمایش <span class='font-black'>${filteredData.length}</span> مورد`;
+                renderGrid();
+            }
+
+            function renderGrid() {
+                grid.innerHTML = '';
+                if(filteredData.length === 0) {
+                    emptyState.classList.remove('hidden'); emptyState.classList.add('flex');
+                    pagination.innerHTML = ''; return;
+                } else {
+                    emptyState.classList.add('hidden'); emptyState.classList.remove('flex');
+                }
+
+                const start = (currentPage - 1) * itemsPerPage;
+                const pageData = filteredData.slice(start, start + itemsPerPage);
+
+                pageData.forEach(item => {
+                    const imgUrl = item.Image ? `images/${item.Image}` : 'https://placehold.co/600x400/1e293b/fff?text=بدون+تصویر';
+                    const card = document.createElement('div');
+                    card.className = 'bg-white dark:bg-dark-card rounded-2xl shadow-sm hover:shadow-xl border border-slate-200 dark:border-dark-border overflow-hidden transition-all duration-300 flex flex-col group';
+                    card.innerHTML = `
+                        <div class='h-48 overflow-hidden relative'>
+                            <img src='${imgUrl}' class='w-full h-full object-cover group-hover:scale-110 transition-transform duration-500'>
+                            <div class='absolute top-3 left-3 bg-brand-500 text-white text-[10px] font-bold px-3 py-1.5 rounded-full'>${item.Date}</div>
+                        </div>
+                        <div class='p-5 flex flex-col flex-grow'>
+                            <h4 class='font-bold text-slate-800 dark:text-white text-lg mb-3 line-clamp-2 leading-tight group-hover:text-brand-500 transition-colors'>${item.Title}</h4>
+                            <div class='text-sm text-slate-500 dark:text-slate-400 mb-5 flex items-center gap-2'><i class='fa-solid fa-user-pen'></i> ${item.Author}</div>
+                            <a href='-${item.Id}.html' class='mt-auto block w-full text-center bg-slate-100 hover:bg-brand-500 text-slate-700 hover:text-white dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-brand-500 py-3 rounded-xl font-bold transition-colors'>مشاهده کامل</a>
+                        </div>`;
+                    grid.appendChild(card);
+                });
+                renderPagination();
+            }
+
+            function renderPagination() {
+                /* منطق پیجینگی که در مطالب قبلی بود... برای حفظ فضای پیام کوتاهش کردم */
+                pagination.innerHTML = '';
+                const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+                if(totalPages <= 1) return;
+                for(let i=1; i<=totalPages; i++) {
+                    const btn = document.createElement('button');
+                    const isActive = i === currentPage;
+                    btn.className = `w-10 h-10 flex items-center justify-center rounded-xl font-bold transition-all shadow-sm border ${isActive ? 'bg-brand-500 text-white border-brand-500 scale-110' : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50 dark:bg-dark-card dark:text-slate-300 dark:border-dark-border dark:hover:bg-slate-700'}`;
+                    btn.innerText = i;
+                    btn.onclick = () => { currentPage = i; renderGrid(); window.scrollTo({top: 0, behavior: 'smooth'}); };
+                    pagination.appendChild(btn);
+                }
+            }
+
+            if(searchInput) searchInput.addEventListener('input', () => { currentPage = 1; applyFilters(); });
+            applyFilters();
+        }
+
+        // ⭐️ اسکریپت رندر چارت‌های داینامیک داخل مقالات ⭐️
+        function initDynamicCharts() {
+            const chartCanvases = document.querySelectorAll('.bce-dynamic-chart');
+            chartCanvases.forEach(canvas => {
+                try {
+                    const rawJson = canvas.getAttribute('data-chart').replace(/&quot;/g, '"').replace(/&apos;/g, "'");
+                    const dataObj = JSON.parse(rawJson);
+                    
+                    if(!Array.isArray(dataObj) || dataObj.length === 0) return;
+                    
+                    // استخراج هوشمند برچسب‌ها و مقادیر (مهم نیست کلیدها چی باشند)
+                    const keys = Object.keys(dataObj[0]);
+                    const labelKey = keys[0]; // فرض: ستون اول اسم محور است
+                    const valueKey = keys[1]; // فرض: ستون دوم مقدار است
+
+                    const labels = dataObj.map(x => x[labelKey]);
+                    const values = dataObj.map(x => parseFloat(x[valueKey] || 0));
+
+                    new Chart(canvas, {
+                        type: 'bar',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                label: 'آمار و اطلاعات',
+                                data: values,
+                                backgroundColor: '#f97316',
+                                borderRadius: 6
+                            }]
+                        },
+                        options: { responsive: true, plugins: { legend: { position: 'bottom' } } }
+                    });
+                } catch(e) { console.error('Error rendering chart:', e); }
+            });
+        }
+
+        window.addEventListener('DOMContentLoaded', () => { setupDarkMode(); setupMobileMenu(); initDynamicCharts(); });
+    </script>
+</body>
+</html>
