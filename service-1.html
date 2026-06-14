@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang='fa' dir='rtl' class='dark'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>طراحی قاب‌های عکس حرفه‌ای | صنایع الکترونیک پیشرو مدار</title>
+    <link rel='icon' href='images/site_639170254671300379_1000343137.png'>
+    
+    <script src='https://cdn.tailwindcss.com'></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Vazirmatn', 'Tahoma', 'sans-serif'] },
+                    colors: {
+                        brand: { 50: '#fff7ed', 100: '#ffedd5', 500: '#f97316', 600: '#ea580c', 900: '#7c2d12' },
+                        dark: { bg: '#0f172a', card: '#1e293b', border: '#334155' },
+                        telegram: { main: '#0088cc', hover: '#0077b3' },
+                        whatsapp: { main: '#25D366', hover: '#1ebe57' },
+                        instagram: { main: '#E1306C' },
+                        eitaa: { main: '#f48020', hover: '#da6e15' },
+                        rubika: { main: '#8e24aa', hover: '#7b1fa2' }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'>
+    <link href='https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.0.0/Vazirmatn-font-face.css' rel='stylesheet' type='text/css' />
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        .dark ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        .dark ::-webkit-scrollbar-thumb { background: #334155; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        body { font-family: 'Vazirmatn', sans-serif; }
+        .transition-all { transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 300ms; }
+        .modal-active { overflow: hidden; }
+        .btn-social:hover i, .btn-telegram:hover i { transform: scale(1.2) rotate(-5deg); transition: transform 0.3s ease; }
+    </style>
+</head>
+<body class='bg-gray-50 text-slate-800 dark:bg-dark-bg dark:text-slate-200 transition-all duration-300 flex flex-col min-h-screen'>
+    <header class='sticky top-0 z-40 bg-white/90 dark:bg-dark-card/90 backdrop-blur-md shadow-md transition-colors duration-300 border-b border-slate-200 dark:border-dark-border'>
+        <div class='container mx-auto px-4 lg:px-8'>
+            <div class='flex items-center justify-between h-20'>
+                <a href='index.html' class='flex items-center gap-3 group'>
+                    <img src='images/site_639170254108881821_1000343137.png' class='h-12 w-auto object-contain dark:hidden' alt='صنایع الکترونیک پیشرو مدار' /><img src='images/site_639170254368824799_1000343137.png' class='h-12 w-auto object-contain hidden dark:block' alt='صنایع الکترونیک پیشرو مدار' />
+                    <div>
+                        <h1 class='font-bold text-xl lg:text-2xl text-slate-900 dark:text-white tracking-tight group-hover:text-brand-500 transition-colors'>صنایع الکترونیک پیشرو مدار</h1>
+                    </div>
+                </a>
+                
+                <nav class='hidden lg:flex items-center gap-6 xl:gap-8 font-medium text-sm xl:text-base'>
+                    <a href='index.html' class='hover:text-brand-500 transition-colors'>صفحه اصلی</a>
+                    <a href='index.html#products-section' class='hover:text-brand-500 transition-colors'>محصولات</a>
+                    <a href='services.html' class='text-brand-500 font-bold border-b-2 border-brand-500 pb-1'>خدمات</a>
+                    <a href='articles.html' class='hover:text-brand-500 transition-colors'>مقالات آموزشی</a>
+                    <a href='news.html' class='hover:text-brand-500 transition-colors'>اخبار</a>
+                    <a href='contact.html' class='hover:text-brand-500 transition-colors'>تماس با ما</a>
+                </nav>
+
+                <div class='flex items-center gap-4'>
+                    <button id='darkModeToggle' class='p-2.5 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors' aria-label='تغییر تم'>
+                        <i class='fa-solid fa-moon text-slate-700 dark:hidden text-lg'></i>
+                        <i class='fa-solid fa-sun text-yellow-400 hidden dark:inline-block text-lg'></i>
+                    </button>
+                    <button id='mobileMenuBtn' class='lg:hidden p-2 text-slate-600 dark:text-slate-300 text-2xl'>
+                        <i class='fa-solid fa-bars'></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div id='mobileMenu' class='hidden lg:hidden bg-white dark:bg-dark-card border-t border-slate-100 dark:border-dark-border px-4 py-4 space-y-2 shadow-inner absolute w-full z-50'>
+            <a href='index.html' class='block px-4 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg'>صفحه اصلی</a>
+            <a href='index.html#products-section' class='block px-4 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg'>لیست محصولات</a>
+            <a href='services.html' class='block px-4 py-2 text-brand-500 font-medium bg-brand-50 dark:bg-slate-800 rounded-lg'>خدمات ما</a>
+            <a href='articles.html' class='block px-4 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg'>مقالات و آموزش‌ها</a>
+            <a href='news.html' class='block px-4 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg'>اخبار مجموعه</a>
+            <a href='contact.html' class='block px-4 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg'>تماس با ما</a>
+        </div>
+    </header>
+    <article class='flex-grow'>
+        <header class='relative bg-slate-900 bg-[url('images/1000344027.png')] bg-cover bg-center bg-no-repeat bg-blend-overlay text-white py-24 lg:py-32'>
+            <div class='absolute inset-0 bg-slate-900/80 backdrop-blur-sm'></div>
+            <div class='container mx-auto px-4 relative z-10 text-center max-w-4xl'>
+                <h1 class='text-3xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight'>طراحی قاب‌های عکس حرفه‌ای</h1>
+                <div class='flex flex-wrap justify-center gap-4 text-slate-300 text-sm font-medium'>
+                    <div class='flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full backdrop-blur-md border border-white/20'><i class='fa-solid fa-user'></i> mohammad.gh</div>
+                    <div class='flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full backdrop-blur-md border border-white/20'><i class='fa-solid fa-calendar'></i> 2026/06/14</div>
+                </div>
+            </div>
+        </header>
+        
+        <div class='container mx-auto px-4 py-12 lg:py-20'>
+            <div class='max-w-4xl mx-auto bg-white dark:bg-dark-card rounded-3xl shadow-xl shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-dark-border p-6 md:p-12 prose dark:prose-invert prose-brand lg:prose-lg mx-auto'>
+            <h2 class='text-3xl font-black mb-6 mt-12 text-slate-900 dark:text-white border-r-4 border-brand-500 pr-4'>طراحی قاب‌های عکس حرفه‌ای؛ ماندگاری خاطرات با ظرافت و کیفیت</h2><p class='mb-6 text-slate-600 dark:text-slate-300 leading-relaxed text-justify'>عکس‌های ارزشمندتان شایسته بهترین قاب‌ها هستند. خدمات طراحی قاب‌های عکس حرفه‌ای ما، ترکیبی از هنر، صنعت و جدیدترین فناوری‌های برش و چاپ است. از قاب‌های کلاسیک چوبی تا طرح‌های مینیمال مدرن، هر قاب با دقت و ظرافت مطابق با سلیقه و دکوراسیون شما ساخته می‌شود. ما فراتر از یک فروشنده، مشاور طراحی شما خواهیم بود.</p><p class='mb-6 text-slate-600 dark:text-slate-300 leading-relaxed text-justify'>فرآیند طراحی از مرحله انتخاب متریال (چوب روسی، گردو، فلزات رنگ شده با الکترواستاتیک و پلیمرهای ضد خش) آغاز می‌شود. سپس ابعاد، ضخامت، رنگ و نوع پشت قاب (ام دی اف، شیشه یا پلکسی گلاس) را انتخاب می‌کنید. تیم حرفه‌ای ما با ارائه طرح سه بعدی، رضایت شما را پیش از تولید نهایی جلب می‌کند. تحویل سفارشات در تهران حداکثر طی ۴۸ ساعت کاری انجام می‌شود.</p><h3 class='text-2xl font-bold mb-4 mt-10 text-slate-800 dark:text-slate-100'>مزایای کلیدی طراحی قاب عکس حرفه‌ای با ما</h3><h3 class='text-2xl font-bold mb-4 mt-10 text-slate-800 dark:text-slate-100'>ویژگی‌های فنی و تنوع محصولات</h3><div class='overflow-x-auto my-8 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm'><table class='w-full text-sm text-right whitespace-nowrap'><thead class='bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border-b border-slate-200 dark:border-slate-700'><tr><th class='px-6 py-4 font-bold'>نوع قاب</th><th class='px-6 py-4 font-bold'>متریال</th><th class='px-6 py-4 font-bold'>ضخامت قابل طراحی (میلی‌متر)</th><th class='px-6 py-4 font-bold'>مناسب برای</th><th class='px-6 py-4 font-bold'>گارانتی رنگ</th></tr></thead><tbody class='divide-y divide-slate-100 dark:divide-slate-800'><tr class='bg-white dark:bg-dark-card hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors'><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>کلاسیک</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>چوب گردوی طبیعی</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>۲۰ تا ۵۰</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>فضای سنتی و کلاسیک</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>۳۶ ماه</td></tr><tr class='bg-white dark:bg-dark-card hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors'><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>مینیمال</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>آلومینیوم الکترواستاتیک</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>۱۰ تا ۲۵</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>دکوراسیون مدرن و اداری</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>۲۴ ماه</td></tr><tr class='bg-white dark:bg-dark-card hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors'><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>روستیک</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>چوب احیا شده</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>۳۰ تا ۶۰</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>کافه، رستوران و خانه‌های روستایی</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>۲۴ ماه</td></tr><tr class='bg-white dark:bg-dark-card hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors'><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>شناور (فلوتینگ)</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>ام دی اف با پوشش پلیمر</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>۱۵ تا ۳۰</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>تابلوهای نقاشی و پوستر</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>۱۸ ماه</td></tr><tr class='bg-white dark:bg-dark-card hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors'><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>مگنتیک (بدون قاب نمایان)</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>پلکسی گلاس مات</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>۵ تا ۱۲</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>عکس‌های هنری و مینیمال</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>۱۲ ماه</td></tr></tbody></table></div><h4 class='text-xl font-bold mb-3 mt-8 text-slate-700 dark:text-slate-200'>خدمات جانبی طراحی قاب عکس حرفه‌ای</h4><h3 class='text-2xl font-bold mb-4 mt-10 text-slate-800 dark:text-slate-100'>تعرفه‌های طراحی قاب عکس حرفه‌ای بر اساس ابعاد</h3><div class='overflow-x-auto my-8 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm'><table class='w-full text-sm text-right whitespace-nowrap'><thead class='bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border-b border-slate-200 dark:border-slate-700'><tr><th class='px-6 py-4 font-bold'>ابعاد قاب (سانتی‌متر)</th><th class='px-6 py-4 font-bold'>متریال پایه (چوب روسی)</th><th class='px-6 py-4 font-bold'>متریال لوکس (گردوی طبیعی یا آلومینیوم)</th><th class='px-6 py-4 font-bold'>زمان تحویل (روز کاری)</th></tr></thead><tbody class='divide-y divide-slate-100 dark:divide-slate-800'><tr class='bg-white dark:bg-dark-card hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors'><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>۱۰ در ۱۵</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>۲۸۰.۰۰۰ تومان</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>۴۹۰.۰۰۰ تومان</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>۲</td></tr><tr class='bg-white dark:bg-dark-card hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors'><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>۲۰ در ۳۰</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>۳۹۰.۰۰۰ تومان</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>۷۲۰.۰۰۰ تومان</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>۳</td></tr><tr class='bg-white dark:bg-dark-card hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors'><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>۳۰ در ۴۰</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>۵۸۰.۰۰۰ تومان</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>۱.۰۵۰.۰۰۰ تومان</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>۳</td></tr><tr class='bg-white dark:bg-dark-card hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors'><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>۵۰ در ۷۰</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>۹۲۰.۰۰۰ تومان</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>۱.۷۸۰.۰۰۰ تومان</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>۴</td></tr><tr class='bg-white dark:bg-dark-card hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors'><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>۷۰ در ۱۰۰</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>۱.۴۵۰.۰۰۰ تومان</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>۲.۸۹۰.۰۰۰ تومان</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>۵</td></tr><tr class='bg-white dark:bg-dark-card hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors'><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>سفارشی (بیشتر از ۱۰۰ سانتی‌متر)</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>استعلام قیمت</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>استعلام قیمت</td><td class='px-6 py-4 text-slate-600 dark:text-slate-400'>۷ تا ۱۰</td></tr></tbody></table></div><h3 class='text-2xl font-bold mb-4 mt-10 text-slate-800 dark:text-slate-100'>نمودار رضایت مشتریان از خدمات طراحی قاب عکس</h3>
+            <div class='w-full max-w-3xl mx-auto my-10 bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700'>
+                <canvas class='bce-dynamic-chart' id='chart_canvas_1' data-chart='[{&quot;label&quot;: &quot;کیفیت ساخت&quot;, &quot;value&quot;: 96}, {&quot;label&quot;: &quot;زیبایی نهایی&quot;, &quot;value&quot;: 94}, {&quot;label&quot;: &quot;سرعت تحویل&quot;, &quot;value&quot;: 88}, {&quot;label&quot;: &quot;ارزش قیمت نسبت به کیفیت&quot;, &quot;value&quot;: 91}, {&quot;label&quot;: &quot;مشاوره و پشتیبانی&quot;, &quot;value&quot;: 95}]'></canvas>
+            </div><p class='mb-6 text-slate-600 dark:text-slate-300 leading-relaxed text-justify'>بر اساس نظرسنجی از ۴۸۰ مشتری در شش ماه گذشته، خدمات طراحی قاب‌های عکس حرفه‌ای ما در شاخص کیفیت ساخت با ۹۶ درصد رضایت، بالاترین امتیاز را کسب کرده است. مشتریان به ویژه از دوام رنگ‌ها و اتصالات محکم قاب‌ها رضایت داشته‌اند. کمترین امتیاز مربوط به سرعت تحویل (۸۸ درصد) بوده که دلیل آن انجام دقیق فرآیند خشک شدن چسب‌ها در قاب‌های چوبی بزرگ است. ما برای افزایش سرعت، خط تولید دوم را راه‌اندازی کرده‌ایم.</p><h3 class='text-2xl font-bold mb-4 mt-10 text-slate-800 dark:text-slate-100'>نحوه سفارش و فرآیند طراحی</h3><p class='mb-6 text-slate-600 dark:text-slate-300 leading-relaxed text-justify'>ما به کیفیت و خلاقیت خود ایمان داریم. اگر از طراحی قاب عکس حرفه‌ای ما راضی نباشید، بدون قید و شرط هزینه را بازپرداخت می‌کنیم. برای سفارش‌های بالای ۲۰ قاب، تخفیف ۱۵ درصدی و دو عدد قاب هدیه در نظر گرفته شده است. اکنون با کارشناسان ما تماس بگیرید و خاطرات خود را در قاب‌هایی ماندگار و هنرمندانه به نمایش بگذارید.</p>
+            </div>
+        </div>
+    </article>
+    <footer id='footer' class='bg-slate-900 text-slate-300 pt-16 pb-8 border-t-4 border-brand-500 mt-auto'>
+        <div class='container mx-auto px-4'>
+            <div class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12'>
+                
+                <div>
+                    <h4 class='text-white text-xl font-bold mb-6 flex items-center gap-2'>
+                        <i class='fa-solid fa-industry text-brand-500'></i> صنایع الکترونیک پیشرو مدار
+                    </h4>
+                    <p class='text-sm leading-relaxed mb-6 text-slate-400'>با سال‌ها تجربه و تعهد، آماده خدمت‌رسانی و ارائه بهترین کیفیت به شما هستیم.</p>
+                    <div class='flex gap-3 flex-wrap'>
+                        <a href='https://t.me/azmoomsun' target='_blank' class='w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-[#0088cc] hover:text-white transition-colors'><i class='fa-brands fa-telegram text-lg'></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class='text-white text-lg font-bold mb-6'>دسترسی سریع</h4>
+                    <ul class='space-y-3 text-sm'>
+                        <li><a href='index.html' class='hover:text-brand-400 transition-colors flex items-center gap-2'><i class='fa-solid fa-angle-left text-xs'></i> صفحه اصلی</a></li>
+                        <li><a href='services.html' class='hover:text-brand-400 transition-colors flex items-center gap-2'><i class='fa-solid fa-angle-left text-xs'></i> خدمات ما</a></li>
+                        <li><a href='articles.html' class='hover:text-brand-400 transition-colors flex items-center gap-2'><i class='fa-solid fa-angle-left text-xs'></i> مقالات آموزشی</a></li>
+                        <li><a href='news.html' class='hover:text-brand-400 transition-colors flex items-center gap-2'><i class='fa-solid fa-angle-left text-xs'></i> اخبار مجموعه</a></li>
+                        <li><a href='contact.html' class='hover:text-brand-400 transition-colors flex items-center gap-2'><i class='fa-solid fa-angle-left text-xs'></i> تماس با ما</a></li>
+                    </ul>
+                </div>
+
+                <div class='lg:col-span-2'>
+                    <h4 class='text-white text-lg font-bold mb-6'>ارتباط با ما</h4>
+                    <ul class='space-y-4 text-sm'>
+                        <li class='flex items-start gap-3'><i class='fa-solid fa-location-dot mt-1 text-brand-500'></i><div><strong class='block text-white mb-1'>آدرس (آدرس مرکزی):</strong><span>تهران، شهرک صنعتی چهاردانگه، بلوار نواب، پلاک ۷۵</span></div></li>
+                        <li class='flex items-center gap-3'><i class='fa-solid fa-phone text-brand-500'></i><span dir='ltr' class='text-right w-full'>021-66998877</span></li>
+                        <li class='flex items-center gap-3'><i class='fa-solid fa-mobile-screen text-brand-500'></i><span dir='ltr' class='text-right w-full'>09125551234</span></li>
+                        <li class='flex items-center gap-3'><i class='fa-solid fa-envelope text-brand-500'></i><span class='text-right w-full'>info@pishromadar.com</span></li>
+                    </ul>
+                </div>
+
+            </div>
+            
+            <div class='pt-8 border-t border-slate-800 text-center text-xs text-slate-500 flex flex-col md:flex-row justify-between items-center gap-4'>
+                <p>تمامی حقوق محفوظ است. © 1403</p>
+                <p>طراحی و توسعه سایت توسط پلتفرم هوشمند aicount</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        function setupDarkMode() {
+            const toggle = document.getElementById('darkModeToggle');
+            const html = document.documentElement;
+            if (!('theme' in localStorage)) localStorage.theme = 'dark';
+            if (localStorage.theme === 'dark') html.classList.add('dark'); else html.classList.remove('dark');
+            if(toggle) {
+                toggle.addEventListener('click', () => {
+                    html.classList.toggle('dark');
+                    localStorage.theme = html.classList.contains('dark') ? 'dark' : 'light';
+                });
+            }
+        }
+        function setupMobileMenu() {
+            const btn = document.getElementById('mobileMenuBtn');
+            const menu = document.getElementById('mobileMenu');
+            if(!btn || !menu) return;
+            const icon = btn.querySelector('i');
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+                if(icon) icon.className = menu.classList.contains('hidden') ? 'fa-solid fa-bars' : 'fa-solid fa-xmark';
+            });
+        }
+    </script>
+    <!-- Chart.js Library -->
+    <script src='https://cdn.jsdelivr.net/npm/chart.js'></script>
+    <script>
+        // اسکریپت مربوط به لیست (جستجو و پیجینگ)
+        const rawData = []; // تزریق شده از سی‌شارپ
+        let filteredData = rawData;
+        let currentPage = 1;
+        const itemsPerPage = 12;
+
+        const grid = document.getElementById('contentGrid');
+        const searchInput = document.getElementById('searchInput');
+        const pagination = document.getElementById('pagination');
+        const emptyState = document.getElementById('emptyState');
+        const resultCount = document.getElementById('resultCount');
+
+        if(grid) {
+            function applyFilters() {
+                const query = searchInput.value.trim().toLowerCase();
+                filteredData = rawData.filter(p => (p.Title || '').toLowerCase().includes(query));
+                if(resultCount) resultCount.innerHTML = `نمایش <span class='font-black'>${filteredData.length}</span> مورد`;
+                renderGrid();
+            }
+
+            function renderGrid() {
+                grid.innerHTML = '';
+                if(filteredData.length === 0) {
+                    emptyState.classList.remove('hidden'); emptyState.classList.add('flex');
+                    pagination.innerHTML = ''; return;
+                } else {
+                    emptyState.classList.add('hidden'); emptyState.classList.remove('flex');
+                }
+
+                const start = (currentPage - 1) * itemsPerPage;
+                const pageData = filteredData.slice(start, start + itemsPerPage);
+
+                pageData.forEach(item => {
+                    const imgUrl = item.Image ? `images/${item.Image}` : 'https://placehold.co/600x400/1e293b/fff?text=بدون+تصویر';
+                    const card = document.createElement('div');
+                    card.className = 'bg-white dark:bg-dark-card rounded-2xl shadow-sm hover:shadow-xl border border-slate-200 dark:border-dark-border overflow-hidden transition-all duration-300 flex flex-col group';
+                    card.innerHTML = `
+                        <div class='h-48 overflow-hidden relative'>
+                            <img src='${imgUrl}' class='w-full h-full object-cover group-hover:scale-110 transition-transform duration-500'>
+                            <div class='absolute top-3 left-3 bg-brand-500 text-white text-[10px] font-bold px-3 py-1.5 rounded-full'>${item.Date}</div>
+                        </div>
+                        <div class='p-5 flex flex-col flex-grow'>
+                            <h4 class='font-bold text-slate-800 dark:text-white text-lg mb-3 line-clamp-2 leading-tight group-hover:text-brand-500 transition-colors'>${item.Title}</h4>
+                            <div class='text-sm text-slate-500 dark:text-slate-400 mb-5 flex items-center gap-2'><i class='fa-solid fa-user-pen'></i> ${item.Author}</div>
+                            <a href='-${item.Id}.html' class='mt-auto block w-full text-center bg-slate-100 hover:bg-brand-500 text-slate-700 hover:text-white dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-brand-500 py-3 rounded-xl font-bold transition-colors'>مشاهده کامل</a>
+                        </div>`;
+                    grid.appendChild(card);
+                });
+                renderPagination();
+            }
+
+            function renderPagination() {
+                /* منطق پیجینگی که در مطالب قبلی بود... برای حفظ فضای پیام کوتاهش کردم */
+                pagination.innerHTML = '';
+                const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+                if(totalPages <= 1) return;
+                for(let i=1; i<=totalPages; i++) {
+                    const btn = document.createElement('button');
+                    const isActive = i === currentPage;
+                    btn.className = `w-10 h-10 flex items-center justify-center rounded-xl font-bold transition-all shadow-sm border ${isActive ? 'bg-brand-500 text-white border-brand-500 scale-110' : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50 dark:bg-dark-card dark:text-slate-300 dark:border-dark-border dark:hover:bg-slate-700'}`;
+                    btn.innerText = i;
+                    btn.onclick = () => { currentPage = i; renderGrid(); window.scrollTo({top: 0, behavior: 'smooth'}); };
+                    pagination.appendChild(btn);
+                }
+            }
+
+            if(searchInput) searchInput.addEventListener('input', () => { currentPage = 1; applyFilters(); });
+            applyFilters();
+        }
+
+        // ⭐️ اسکریپت رندر چارت‌های داینامیک داخل مقالات ⭐️
+        function initDynamicCharts() {
+            const chartCanvases = document.querySelectorAll('.bce-dynamic-chart');
+            chartCanvases.forEach(canvas => {
+                try {
+                    const rawJson = canvas.getAttribute('data-chart').replace(/&quot;/g, '"').replace(/&apos;/g, "'");
+                    const dataObj = JSON.parse(rawJson);
+                    
+                    if(!Array.isArray(dataObj) || dataObj.length === 0) return;
+                    
+                    // استخراج هوشمند برچسب‌ها و مقادیر (مهم نیست کلیدها چی باشند)
+                    const keys = Object.keys(dataObj[0]);
+                    const labelKey = keys[0]; // فرض: ستون اول اسم محور است
+                    const valueKey = keys[1]; // فرض: ستون دوم مقدار است
+
+                    const labels = dataObj.map(x => x[labelKey]);
+                    const values = dataObj.map(x => parseFloat(x[valueKey] || 0));
+
+                    new Chart(canvas, {
+                        type: 'bar',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                label: 'آمار و اطلاعات',
+                                data: values,
+                                backgroundColor: '#f97316',
+                                borderRadius: 6
+                            }]
+                        },
+                        options: { responsive: true, plugins: { legend: { position: 'bottom' } } }
+                    });
+                } catch(e) { console.error('Error rendering chart:', e); }
+            });
+        }
+
+        window.addEventListener('DOMContentLoaded', () => { setupDarkMode(); setupMobileMenu(); initDynamicCharts(); });
+    </script>
+</body>
+</html>
